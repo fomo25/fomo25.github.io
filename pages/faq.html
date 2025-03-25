@@ -1,0 +1,64 @@
+---
+layout: default
+title: FAQ - FOMO 2025 - Foundation Model Challenge for Brain MRI
+permalink: /faq
+---
+<div class="bg-white text-gray-900 max-w-4xl mx-auto px-8 py-16 my-8 rounded-lg shadow-md">
+    <h1 class="text-3xl font-extrabold text-gray-900 mb-8">Frequently Asked Questions</h1>
+    <div class="space-y-6">
+        <div x-data="{ open: false }" class="border-b border-gray-200 pb-8">
+            <h2 @click="open = !open"
+                class="text-lg font-medium text-gray-900 cursor-pointer flex items-center justify-between hover:text-blue-600">
+                What is FOMO 2025?
+                <span :class="open ? 'rotate-180' : ''" class="transform transition-transform">
+                    &#9660;
+                </span>
+            </h2>
+            <p x-show="open" class="mt-2 text-gray-600" x-cloak>
+                FOMO 2025 is the Foundation Model Challenge for Brain MRI, aiming to advance AI in medical imaging.
+            </p>
+        </div>
+    </div>
+    <div x-data="{ open: false }" class="border-b border-gray-200 pb-8">
+        <h2 @click="open = !open"
+            class="text-lg font-medium text-gray-900 cursor-pointer flex items-center justify-between hover:text-blue-600">
+            How do I register?
+            <span :class="open ? 'rotate-180' : ''" class="""transform transition-transform">
+                &#9660;
+            </span>
+        </h2>
+        <p x-show="open" class="mt-2 text-gray-600" x-cloak>
+            You can register by visiting our official website and following the registration instructions.
+        </p>
+    </div>
+    <div x-data="{ open: false }" class="border-b border-gray-200 pb-8">
+        <h2 @click="open = !open"
+            class="text-lg font-medium text-gray-900 cursor-pointer flex items-center justify-between hover:text-blue-600">
+            What are the key dates?
+            <span :class="open ? 'rotate-180' : ''" class="transform transition-transform">
+                &#9660;
+            </span>
+        </h2>
+        <p x-show="open" class="mt-2 text-gray-600" x-cloak>
+            The challenge starts in January 2025, with submissions due by June 2025. Check the website for detailed
+            timelines.
+        </p>
+    </div>
+    <div x-data="{ open: false }" class="border-b border-gray-200 pb-8">
+        <h2 @click="open = !open"
+            class="text-lg font-medium text-gray-900 cursor-pointer flex items-center justify-between hover:text-blue-600">
+            Ethical Approvals
+            <span :class="open ? 'rotate-180' : ''" class="transform transition-transform">
+                &#9660;
+            </span>
+        </h2>
+        <p x-show="open" class="mt-2 text-gray-600" x-cloak>
+            All datasets have been approved by legal and ethics boards, including the Danish Patient Safety (Styrelsen
+            for Patientsikkerhed, approval #31-1521-257) and the Danish Data Protection Agency (Datatilsynet, approval
+            #P-2020-320). The pre-training source dataset denoted as "MGH Wild" was downloaded from the PACS at
+            Massachusetts General Hospital under Institutional Review Board approval.
+        </p>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
