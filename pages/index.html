@@ -15,21 +15,21 @@ permalink: /
     </div>
 </section>
 <section>
-    <div class="max-w mx-auto px-4 text-center bg-opacity-90 bg-white p-6 rounded-lg shadow-sm">
+    <div class="max-w mx-auto text-center bg-opacity-90 bg-white p-6 rounded-lg shadow-sm">
         <div class="flex justify-center flex-wrap gap-4">
-            <img src="images/ucph.png" alt="University of Copenhagen" class="h-12 w-auto object-contain">
-            <img src="images/hms.png" alt="Harvard Medical School" class="h-12 w-auto object-contain">
-            <img src="images/p1.png" alt="Pioneer Centre for AI" class="h-12 w-auto object-contain">
+            <img src="images/ucph.png" alt="University of Copenhagen" class="h-10 w-auto object-contain">
+            <img src="images/hms.png" alt="Harvard Medical School" class="h-10 w-auto object-contain">
+            <img src="images/p1.png" alt="Pioneer Centre for AI" class="h-10 w-auto object-contain">
             <img src="images/martinos.png" alt="A. A Martinos Center for Biomedical Imaging"
-                class="h-12 w-auto object-contain">
-            <img src="images/mgh.png" alt="Bispebjerg Hospital" class="h-12 w-auto object-contain">
-            <img src="images/rait.png" alt="Radiological AI testcenter " class="h-12 w-auto object-contain">
-            <img src="images/bispebjerg.png" alt="Bispebjerg Hospital" class="h-12 w-auto object-contain">
-            <img src="images/gentofte.png" alt="Gentofte Hospital" class="h-12 w-auto object-contain">
+                class="h-10 w-auto object-contain">
+            <img src="images/mgh.png" alt="Bispebjerg Hospital" class="h-10 w-auto object-contain">
+            <img src="images/rait.png" alt="Radiological AI testcenter " class="h-10 w-auto object-contain">
+            <img src="images/bispebjerg.png" alt="Bispebjerg Hospital" class="h-10 w-auto object-contain">
+            <img src="images/gentofte.png" alt="Gentofte Hospital" class="h-10 w-auto object-contain">
             <img src="images/precision_psyk.jpeg"
                 alt="Copenhagen Research Centre for Biological and Precision Psychiatry"
                 class="h-12 w-auto object-contain">
-            <img src="images/cerebriu.svg" alt="Cerebriu" class="h-12 w-auto object-contain">
+            <img src="images/cerebriu.svg" alt="Cerebriu" class="h-10 w-auto object-contain">
         </div>
     </div>
 </section>
@@ -45,8 +45,8 @@ permalink: /
                     </svg>
                 </span>
                 <p class="text-gray-700 text-lg">
-                    Access to <strong>51,779 MRI scans</strong> for pretraining, the largest dataset ever
-                    released for brain MRI research.
+                    Access to <strong>51,779 MRI scans</strong> for pretraining, the first large-scale pretraining
+                    dataset for brain MRI.
                 </p>
             </li>
             <li class="flex items-start">
@@ -57,7 +57,8 @@ permalink: /
                     </svg>
                 </span>
                 <p class="text-gray-700 text-lg">
-                    Evaluation on three few-shot and out-of-domain tasks: <strong>infarct detection</strong>,
+                    Evaluation on three few-shot and out-of-domain tasks on clinical data: <strong>infarct
+                        detection</strong>,
                     <strong>meningioma segmentation</strong>, and <strong>brain age estimation</strong>.
                 </p>
             </li>
@@ -94,75 +95,65 @@ permalink: /
     <h2 class="text-2xl font-bold mb-6 text-gray-900">News</h2>
     <div class="bg-white p-6 rounded-lg shadow-md text-black">
         <div class="mb-6 pb-6 border-b border-gray-200">
-            <h3 class="text-xl font-semibold">New Update: Registration Now Open!</h3>
-            <p class="text-sm text-gray-700">March 21, 2025</p>
-            <p class="mt-2">We are excited to announce that registration for the FOMO Challenge is now open!
-                Secure your spot now and be part of the innovation.</p>
-        </div>
-        <div class="mb-6 pb-6 border-b border-gray-200">
-            <h3 class="text-xl font-semibold">Feature Release: Enhanced MRI Preprocessing Pipeline</h3>
-            <p class="text-sm text-gray-700">March 20, 2025</p>
-            <p class="mt-2">Explore the improvements in our MRI preprocessing pipeline for faster processing and
-                improved accuracy.</p>
-        </div>
-        <div>
-            <h3 class="text-xl font-semibold">Upcoming Webinar: Deep Dive into Foundation Models</h3>
-            <p class="text-sm text-gray-700">March 19, 2025</p>
-            <p class="mt-2">Join our experts as they discuss the future of foundation models in brain MRI
-                analysis. Stay tuned for more details!</p>
+            <h3 class="text-xl font-semibold">Registration Now Open!</h3>
+            <p class="text-sm text-gray-700">April 1, 2025</p>
+            <p class="mt-2">We are excited to announce that registration for the FOMO Challenge is now open!</p>
         </div>
     </div>
 </section>
 
-<section class="bg-white text-gray-900 max-w-4xl mx-auto px-8 py-16 my-8 rounded-lg shadow-md">
-    <h2 class="text-3xl font-bold mb-6 text-gray-900 text-center">Abstract</h2>
-    <p class="text-gray-700 text-lg mb-6">
-        Evidence from general computer vision suggests that large-scale self-supervised pre-training presents
-        vast yet underutilised possibilities in brain MRI analysis. Yet, the current method of choice for
-        deep-learning based analysis of brain MRI is still a fully-supervised paradigm. Due to a highly
-        effective data augmentation pipeline, the fully-supervised approach can be effective even with limited
-        labeled data. However out-of-domain robustness remains challenging, effectively limiting the models from
-        broad clinical deployment. The recent paradigm of training foundation models, by using self-supervised
-        pre-training on large-scale datasets, provides an avenue to remedy this, promising models which can be
-        few-shot adapted to novel tasks, while remaining robust to out-of-domain data.
-    </p>
-    <p class="text-gray-700 text-lg mb-6">
-        To spearhead the development of large self-supervised foundation models in the brain MRI domain, we
-        propose FOMO, the first challenge at MICCAI aiming to investigate foundation models for brain MRI. This
-        challenge is
-        designed to drastically reduce the barrier for the MICCAI community to train foundation models. Further,
-        this challenge seeks to investigate the few-shot generalisation properties of foundation models in the
-        context of real-world brain MRI data by evaluating models on three large clinical, multi-vendor, and
-        multi-center datasets.
-    </p>
-    <p class="text-gray-700 text-lg mb-6">
-        Since models are evaluated on multiple downstream tasks, this challenge seeks to investigate the effects
-        of different pre-training paradigms and configurations on downstream performance and ultimately both
-        identify the most promising methodologies and quantify the benefits of self-supervised pre-training.
-        In this challenge, participants will have access to the largest brain imaging dataset ever released,
-        assembled from
-        public sources, comprising of 51,779 MRI scans (from 11,161 cases) of which approximately a third are of
-        clinical quality. The pre-training dataset will not contain any segmentation maps or disease diagnosis
-        information which can be used for supervision. Participants will first pre-train a model on this
-        dataset, before fine-tuning models on three few-shot supervised tasks consisting of clinical MRIs
-        spanning image-level infarct detection, meningioma segmentation and brain age estimation. Evaluation
-        consists of large, diverse, multi-vendor, multi-center datasets consisting of 1200, 600 and 2000 MRI
-        scans (400, 200 and 1000 subjects) respectively. 20% of the data will be made available during a
-        pre-evaluation phase, which allows participants to gauge the performance of their models before final
-        submission.
-    </p>
+<section class="max-w-4xl mx-auto px-4 mt-10">
+    <div class="bg-white rounded-lg shadow-m p-12">
+        <h2 class="text-3xl font-bold mb-6 text-gray-900 text-center">Abstract</h2>
+        <p class="text-gray-700 text-lg mb-6">
+            Evidence from general computer vision suggests that large-scale self-supervised pre-training presents
+            vast yet underutilised possibilities in brain MRI analysis. Yet, the current method of choice for
+            deep-learning based analysis of brain MRI is still a fully-supervised paradigm. Due to a highly
+            effective data augmentation pipeline, the fully-supervised approach can be effective even with limited
+            labeled data. However out-of-domain robustness remains challenging, effectively limiting the models from
+            broad clinical deployment. The recent paradigm of training foundation models, by using self-supervised
+            pre-training on large-scale datasets, provides an avenue to remedy this, promising models which can be
+            few-shot adapted to novel tasks, while remaining robust to out-of-domain data.
+        </p>
+        <p class="text-gray-700 text-lg mb-6">
+            To spearhead the development of large self-supervised foundation models in the brain MRI domain, we
+            propose FOMO, the first challenge at MICCAI aiming to investigate foundation models for brain MRI. This
+            challenge is
+            designed to drastically reduce the barrier for the MICCAI community to train foundation models. Further,
+            this challenge seeks to investigate the few-shot generalisation properties of foundation models in the
+            context of real-world brain MRI data by evaluating models on three large clinical, multi-vendor, and
+            multi-center datasets.
+        </p>
+        <p class="text-gray-700 text-lg mb-6">
+            Since models are evaluated on multiple downstream tasks, this challenge seeks to investigate the effects
+            of different pre-training paradigms and configurations on downstream performance and ultimately both
+            identify the most promising methodologies and quantify the benefits of self-supervised pre-training.
+            In this challenge, participants will have access to the largest brain imaging dataset ever released,
+            assembled from
+            public sources, comprising of 51,779 MRI scans (from 11,161 cases) of which approximately a third are of
+            clinical quality. The pre-training dataset will not contain any segmentation maps or disease diagnosis
+            information which can be used for supervision. Participants will first pre-train a model on this
+            dataset, before fine-tuning models on three few-shot supervised tasks consisting of clinical MRIs
+            spanning image-level infarct detection, meningioma segmentation and brain age estimation. Evaluation
+            consists of large, diverse, multi-vendor, multi-center datasets consisting of 1200, 600 and 2000 MRI
+            scans (400, 200 and 1000 subjects) respectively. 20% of the data will be made available during a
+            pre-evaluation phase, which allows participants to gauge the performance of their models before final
+            submission.
+        </p>
+    </div>
 </section>
 
-<section class="max-w-4xl mx-auto text-center px-4 mt-10 bg-white p-8 rounded-lg shadow-lg mb-8">
-    <h2 class="text-3xl font-bold mb-6 text-gray-900">Join the Challenge</h2>
-    <p class="text-gray-700 text-lg mb-8">
-        Be part of the groundbreaking FOMO challenge and contribute to advancing brain MRI research. Click the
-        button below to register and get started!
-    </p>
-    <div>
-        <a href="/signup"
-            class="text-white hover:text-gray-200 bg-gradient-to-r from-pink-500 to-pink-700 px-8 py-4 rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
-            Register Now
-        </a>
+<section class="max-w-4xl mx-auto px-4 mt-10 mb-8">
+    <div class="bg-white rounded-lg shadow-m p-12 text-center">
+        <h2 class="text-3xl font-bold mb-6 text-gray-900">Join the Challenge</h2>
+        <p class="text-gray-700 text-lg mb-8">
+            Be part of the groundbreaking FOMO challenge and contribute to advancing brain MRI research!
+        </p>
+        <div>
+            <a href="/signup"
+                class="text-white hover:text-gray-200 bg-gradient-to-r from-pink-500 to-pink-700 px-8 py-4 rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+                Register Now
+            </a>
+        </div>
     </div>
 </section>

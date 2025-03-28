@@ -3,186 +3,319 @@ layout: default
 title: Signup - FOMO 2025 - Foundation Model Challenge for Brain MRI
 permalink: /signup
 ---
-<div class="bg-white text-gray-900 max-w-4xl mx-auto px-8 py-16 my-8 rounded-lg shadow-md">
+<!-- Alpine.js from CDN -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<div class="bg-white text-gray-900 max-w-4xl mx-auto px-8 py-16 my-8 rounded-lg shadow-md"
+    x-data="{ checkboxSynapse: false, checkboxTerms: false, showForm: false }">
     <!-- Page Title -->
     <h1 class="text-2xl font-bold text-center mb-8">Signup for FOMO 2025 Challenge</h1>
 
     <!-- Updated instruction element above the form -->
-    <div class="mb-8 space-y-4">
+    <div class="mb-2 space-y-12">
         <div class="flex items-start space-x-4">
             <div class="flex-shrink-0">
                 <span
                     class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-gray-400 text-white font-bold">1</span>
             </div>
             <div class="flex-1">
-                <h2 class="text-lg font-semibold">Register for the challenge on Synapse (required - must do first!)</h2>
-                <p class="mt-1 text-sm text-gray-700">This <span class="italic">must</span> be done as the first step.
+                <h2 class="text-lg font-semibold">Register for the challenge on Synapse (required!)</h2>
+                <p class="mt-1 text-sm text-gray-700 mb-4">This <span class="italic">must</span> be done as the first
+                    step.
                 </p>
+                <ol class="list-decimal pl-6 text-sm text-gray-700 space-y-2">
+                    <li>Go to the FOMO25 Synapse page and sign-up: <a href="https://www.synapse.org/Synapse:syn64895667"
+                            class="text-indigo-600 underline">FOMO25 Synapse</a>.
+                    </li>
+                </ol>
+
+                <input id="confirm-synapse-registration" name="confirm-synapse-registration" type="checkbox"
+                    x-model="checkboxSynapse" class="mt-8 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                <label for="confirm-synapse-registration" class="ml-2 text-sm text-gray-700">
+                    I confirm that I have registered for the challenge on Synapse
+                </label>
             </div>
         </div>
-        <div class="flex items-start space-x-4 pt-4">
+        <div class="flex items-start space-x-4">
             <div class="flex-shrink-0">
                 <span
                     class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-gray-400 text-white font-bold">2</span>
             </div>
             <div class="flex-1">
-                <h2 class="text-lg font-semibold">Signup</h2>
-                <p class="mt-1 text-sm text-gray-70 mb-6">Signup using the following form.
-                </p>
-                <form action="/submit-signup" method="POST" class="space-y-6">
+                <h2 class="text-lg font-semibold">Register for the PPMI data and wait for acceptance (required!)</h2>
+                <p class="mt-4 text-md text-gray-700 mb-4">
+                    Go to the <a href="https://ida.loni.usc.edu/collaboration/access/appApply.jsp?project=PPMI"
+                        target="_blank" class="text-indigo-600 underline">the PPMI application form</a> and perform the
+                    following steps:
+                <ol class="list-decimal pl-6 text-sm text-gray-700 space-y-2">
+                    </p>
+                    <li>Sign the <a
+                            href="https://www.ppmi-info.org/sites/default/files/docs/ppmi-data-use-agreement.pdf"
+                            target="_blank" class="text-indigo-600 underline">PPMI Data Use Agreement</a>.</li>
+                    <li>Submit an Online Application. For the "proposed analysis", you can use the following: </br>
+
+                        <div class="bg-gray-100 p-4 rounded-md border border-gray-300 mt-4">
+                            <p class="text-sm text-gray-700">
+                                <strong>Proposed Analysis:</strong>
+                            </p>
+                            <pre
+                                class="bg-gray-200 p-2 rounded-md text-sm text-gray-800 overflow-auto whitespace-pre-wrap break-words">
+Research on the effect of using SSL on robustness and few-shot properties of deep-learning based models, with the aim of improving the diagnosis of brain-related diseases, including Parkinson.</pre>
+                            <p class="text-sm text-gray-500 mt-4">
+                                You are welcome to copy the above text and paste it into the "Proposed Analysis" field
+                                in the PPMI
+                                application form.
+                            </p>
+                        </div>
+                    </li>
+                    <li>Comply with the <a
+                            href="https://www.ppmi-info.org/sites/default/files/docs/ppmi-publication-policy.pdf"
+                            target="_blank" class="text-indigo-600 underline">Publication Policty</a></li>
+                    <li>Wait for acceptance to access the PPMI data. This typically takes 72 hours, but can take up to a
+                        week.</li>
+                    </li>
+                </ol>
+                <input id="confirm-terms" name="confirm-terms" type="checkbox" x-model="checkboxTerms"
+                    class="mt-8 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                <label for="confirm-terms" class="ml-2 text-sm text-gray-700">
+                    I confirm that I have registered for <u>and been accepted to</u> access the PPMI data.
+                </label>
+            </div>
+        </div>
+    </div>
+    <!-- Add checkboxes and next button -->
+    <div class="mt-4 mb-12 space-y-3 pl-2">
+        <div class="flex items-start">
+            <div class="mt-8">
+                <button
+                    @click="showForm = true; highlightNewSection = true; setTimeout(() => { highlightNewSection = false; }, 3000); setTimeout(() => { document.getElementById('form-step-3').scrollIntoView({behavior: 'smooth', block: 'start'}); }, 100)"
+                    :disabled="!checkboxSynapse || !checkboxTerms"
+                    :class="{'bg-indigo-600 hover:bg-indigo-700': checkboxSynapse && checkboxTerms, 'bg-gray-400 cursor-not-allowed': !checkboxSynapse || !checkboxTerms}"
+                    class="py-2 px-4 rounded-md shadow text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                    Continue
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Form section - Step 2 -->
+    <div id="form-step-3" class="flex items-start space-x-4 pt-4" x-show="showForm" x-transition
+        :class="{ 'highlight-section': highlightNewSection }">
+        <div class="flex-shrink-0">
+            <span
+                class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-gray-400 text-white font-bold">3</span>
+        </div>
+        <div class="flex-1">
+            <h2 class="text-lg font-semibold">Fill out the following form</h2>
+            <form action="/submit-signup" method="POST" class="space-y-8 mt-8">
+                <!-- Section: Synapse Information -->
+                <div class="border border-gray-200 rounded-md p-4 bg-gray-50">
+                    <h3 class="text-md font-medium text-gray-800 mb-4 border-b pb-2">Synapse Information</h3>
                     <div>
                         <label for="synapse-username" class="block text-sm font-medium text-gray-700">Synapse
                             Username</label>
                         <input type="text" id="synapse-username" name="synapse-username" required
                             class="mt-2 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                         <p class="mt-1 text-sm text-gray-500">
-                            If you do not know your username, you can find it by going to your user profile, then
-                            looking under Username.
-                            For example, the username for this individual would be "awesome-user":
+                            To find your Synapse username click "Your Account" then "View Profile" in the bottom-left of
+                            the Synapse UI. For example, the username for the following individual would be
+                            "my-synapse-username":
                         </p>
-                        <img src="https://placehold.co/300x100" alt="Example showing where to find the username"
-                            class="mt-2 w-full rounded-md shadow-sm">
-                        <p class="mt-1 text-sm text-red-500 font-semibold">
-                            WARNING: This must be filled out and correspond with the user who has connected to Synapse
-                            above.
-                        </p>
+                        <img src="/images/synapse-username.png" alt="Example showing where to find the username"
+                            class="mt-2 ml-8 h-250px rounded-md shadow-sm">
                     </div>
-                    <div class="flex space-x-4">
-                        <div class="w-1/2">
-                            <label for="first-name" class="block text-sm font-medium text-gray-700">First Name</label>
-                            <input type="text" id="first-name" name="first-name" required
+                </div>
+
+                <div class="border border-gray-200 rounded-md p-4 bg-gray-50">
+                    <h3 class="text-md font-medium text-gray-800 mb-4 border-b pb-2">PPMI Account Information</h3>
+                    <p class="my-4 text-sm">
+                        Please provide the contact information on the Principal Investigator (PI) of your PPMI
+                        Application.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex space-x-4">
+                            <div class="w-1/2">
+                                <label for="first-name" class="block text-sm font-medium text-gray-700">PPMI PI First
+                                    Name</label>
+                                <input type="text" id="first-name" name="ppmi-pi-first-name" required
+                                    class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                            <div class="w-1/2">
+                                <label for="last-name" class="block text-sm font-medium text-gray-700">PPMI PI Last
+                                    Name</label>
+                                <input type="text" id="last-name" name="ppmi-pi-last-name" required
+                                    class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">PPMI PI Email
+                                Address</label>
+                            <input type="email" id="email" name="email" required
                                 class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                         </div>
-                        <div class="w-1/2">
-                            <label for="last-name" class="block text-sm font-medium text-gray-700">Last Name</label>
-                            <input type="text" id="last-name" name="last-name" required
+                    </div>
+                </div>
+
+                <!-- Section: Personal Information -->
+                <div class="border border-gray-200 rounded-md p-4 bg-gray-50">
+                    <h3 class="text-md font-medium text-gray-800 mb-4 border-b pb-2">Personal Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex space-x-4">
+                            <div class="w-1/2">
+                                <label for="first-name" class="block text-sm font-medium text-gray-700">First
+                                    Name</label>
+                                <input type="text" id="first-name" name="first-name" required
+                                    class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                            <div class="w-1/2">
+                                <label for="last-name" class="block text-sm font-medium text-gray-700">Last Name</label>
+                                <input type="text" id="last-name" name="last-name" required
+                                    class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                            <input type="email" id="email" name="email" required
                                 class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                         </div>
                     </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                        <input type="email" id="email" name="email" required
-                            class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                </div>
+
+                <!-- Section: Institution & Location -->
+                <div class="border border-gray-200 rounded-md p-4 bg-gray-50">
+                    <h3 class="text-md font-medium text-gray-800 mb-4 border-b pb-2">Affiliation</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="affiliated-institution"
+                                class="block text-sm font-medium text-gray-700">Affiliated
+                                Institution</label>
+                            <input type="text" id="affiliated-institution" name="affiliated-institution" required
+                                class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+                            <input type="text" id="city" name="city" required
+                                class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
+                            <input type="text" id="country" name="country" required
+                                class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label for="position" class="block text-sm font-medium text-gray-700">Position</label>
+                            <select id="position" name="position" required
+                                class="mt-1 block w-full border border-gray-400 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                                <option value="PhD Student/Candidate">PhD Student / Candidate</option>
+                                <option value="Professor">Professor</option>
+                                <option value="Associate/Assistant Professor">Associate/Assistant Professor</option>
+                                <option value="Postdoc">Postdoc</option>
+                                <option value="Graduate Student">Graduate Student</option>
+                                <option value="Student">Student -- other</option>
+                                <option value="Research Scientist">Research Scientist</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div id="other-position-field" class="hidden">
+                            <label for="other-position" class="block text-sm font-medium text-gray-700">Please
+                                specify
+                                your
+                                position</label>
+                            <input type="text" id="other-position" name="other-position"
+                                class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
                     </div>
-                    <div>
-                        <label for="affiliated-institution" class="block text-sm font-medium text-gray-700">Affiliated
-                            Institution</label>
-                        <input type="text" id="affiliated-institution" name="affiliated-institution" required
-                            class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                </div>
+
+                <!-- Section: Research Group Information -->
+                <div class="border border-gray-200 rounded-md p-4 bg-gray-50">
+                    <h3 class="text-md font-medium text-gray-800 mb-4 border-b pb-2">Research Group Information</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="research-group" class="block text-sm font-medium text-gray-700">Name of your
+                                research group</label>
+                            <input type="text" id="research-group" name="research-group" required
+                                class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label for="pi-name" class="block text-sm font-medium text-gray-700">PI Name</label>
+                            <input type="text" id="pi-name" name="pi-name" required
+                                class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label for="pi-email" class="block text-sm font-medium text-gray-700">PI Email</label>
+                            <input type="email" id="pi-email" name="pi-email" required
+                                class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
                     </div>
-                    <div>
-                        <label for="city" class="block text-sm font-medium text-gray-700">City</label>
-                        <input type="text" id="city" name="city" required
-                            class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                    </div>
-                    <div>
-                        <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
-                        <input type="text" id="country" name="country" required
-                            class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                    </div>
-                    <div>
-                        <label for="position" class="block text-sm font-medium text-gray-700">Position</label>
-                        <select id="position" name="position" required
-                            class="mt-1 block w-full border border-gray-400 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                            <option value="Professor">Professor</option>
-                            <option value="Associate/Assistant Professor">Associate/Assistant Professor</option>
-                            <option value="Postdoc">Postdoc</option>
-                            <option value="PhD Student/Candidate">PhD Student / Candidate</option>
-                            <option value="Graduate Student">Graduate Student</option>
-                            <option value="Student">Student -- other</option>
-                            <option value="Research Scientist">Research Scientist</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <div id="other-position-field" class="hidden">
-                        <label for="other-position" class="block text-sm font-medium text-gray-700">Please specify your
-                            position</label>
-                        <input type="text" id="other-position" name="other-position"
-                            class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                    </div>
+                </div>
+
+                <!-- Section: Terms and Agreements -->
+                <div class="border border-gray-200 rounded-md p-4 bg-gray-50">
+                    <h3 class="text-md font-medium text-gray-800 mb-4 border-b pb-2">Terms and Agreements</h3>
                     <fieldset>
-                        <legend class="text-sm font-medium text-gray-700">Principal Investigator and Research Group
-                        </legend>
-                        <div class="mt-4 pl-4 border-l-4 border-gray-300 space-y-4">
-                            <div>
-                                <label for="research-group" class="block text-sm font-medium text-gray-700">Name of your
-                                    research group</label>
-                                <input type="text" id="research-group" name="research-group" required
-                                    class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                        <div class="mt-2 space-y-2">
+                            <div class="flex items-start">
+                                <input id="citation-policy" name="terms" type="checkbox" required
+                                    class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                <label for="citation-policy" class="ml-2 text-sm text-gray-700">I agree that any usage
+                                    of the provided data will adhere to the <a href="/citation-policy"
+                                        class="text-indigo-600 underline"> Citation Policy</a></label>
                             </div>
-                            <div>
-                                <label for="pi-name" class="block text-sm font-medium text-gray-700">PI Name</label>
-                                <input type="text" id="pi-name" name="pi-name" required
-                                    class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                            <div class="flex items-start">
+                                <input id="ppmi-data-usage" name="terms" type="checkbox" required
+                                    class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                <label for="ppmi-data-usage" class="ml-2 text-sm text-gray-700">I agree to the <a
+                                        href="https://www.ppmi-info.org/sites/default/files/docs/ppmi-data-use-agreement.pdf"
+                                        target="_blank" class="text-indigo-600 underline">PPMI Data Usage
+                                        Agreements</a></label>
                             </div>
-                            <div>
-                                <label for="pi-email" class="block text-sm font-medium text-gray-700">PI Email</label>
-                                <input type="email" id="pi-email" name="pi-email" required
-                                    class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                            <div class="flex items-start">
+                                <input id="oasis-data-usage" name="terms" type="checkbox" required
+                                    class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                                <label for="oasis-data-usage" class="ml-2 text-sm text-gray-700">I agree to the
+                                    <a href="https://bpb-us-w2.wpmucdn.com/sites.wustl.edu/dist/6/4383/files/2024/05/Data-Use-Agreement_May2024.pdf"
+                                        target="_blank" class="text-indigo-600 underline">OASIS Data Usage
+                                        Agreements</a></label>
                             </div>
                         </div>
                     </fieldset>
-                    <div>
-                        <fieldset>
-                            <legend class="text-sm font-medium text-gray-700">Terms and Agreements</legend>
-                            <div class="mt-2 space-y-2">
-                                <div class="flex items-start">
-                                    <input id="citation-policy" name="terms" type="checkbox" required
-                                        class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                                    <label for="citation-policy" class="ml-2 text-sm text-gray-700">I agree to the
-                                        Citation
-                                        Policy</label>
-                                </div>
-                                <div class="flex items-start">
-                                    <input id="ppmi-data-usage" name="terms" type="checkbox" required
-                                        class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                                    <label for="ppmi-data-usage" class="ml-2 text-sm text-gray-700">I agree to the PPMI
-                                        Data Usage
-                                        Agreements</label>
-                                </div>
-                                <div class="flex items-start">
-                                    <input id="oasis-data-usage" name="terms" type="checkbox" required
-                                        class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                                    <label for="oasis-data-usage" class="ml-2 text-sm text-gray-700">I agree to the
-                                        OASIS Data Usage
-                                        Agreements</label>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
-                    <div>
-                        <button type="submit"
-                            class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md shadow hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                            Signup
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="flex items-start space-x-4 pt-12">
-            <div class="flex-shrink-0">
-                <span
-                    class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-gray-400 text-white font-bold">3</span>
-            </div>
-            <div class="flex-1">
-                <p class="text-lg font-semibold">Wait for Email
-                </p>
-                <p class="mt-1 text-sm text-gray-700"></p>
-                We will verify your information and send you instructions on how to access data. We strive to do this
-                within 24 hours during weekdays CET, but please note that it can take up to 72
-                hours.
-                </p>
-            </div>
+                </div>
+
+                <div>
+                    <button type="submit" disabled
+                        class="w-full bg-gray-400 text-white py-2 px-4 rounded-md shadow cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+                        Signup is not yet available
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
-    <script>
-        document.getElementById('position').addEventListener('change', function () {
-            var otherField = document.getElementById('other-position-field');
-            if (this.value === 'Other') {
-                otherField.classList.remove('hidden');
-            } else {
-                otherField.classList.add('hidden');
-            }
-        });
-    </script>
+
+    <!-- Step 3 - now hidden until form is shown -->
+    <div class="flex items-start space-x-4 pt-12" x-show="showForm" x-transition>
+        <div class="flex-shrink-0">
+            <span
+                class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-gray-400 text-white font-bold">4</span>
+        </div>
+        <div class="flex-1">
+            <p class="text-lg font-semibold">Wait for Email
+            </p>
+            <p class="mt-1 text-sm text-gray-700"></p>
+            We will verify your information and send you instructions on how to access data. We strive to do this
+            within 24 hours during weekdays CET, but please note that it can take up to 72
+            hours.
+            </p>
+        </div>
+    </div>
 </div>
+<script>
+    document.getElementById('position').addEventListener('change', function () {
+        var otherField = document.getElementById('other-position-field');
+        if (this.value === 'Other') {
+            otherField.classList.remove('hidden');
+        } else {
+            otherField.classList.add('hidden');
+        }
+    });
+</script>

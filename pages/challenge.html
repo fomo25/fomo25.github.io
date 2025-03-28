@@ -5,11 +5,12 @@ permalink: /challenge
 ---
 <div class="bg-white text-gray-900 max-w-4xl mx-auto px-8 py-16 my-8 rounded-lg shadow-md">
     <!-- Page Title -->
-    <h1 class="text-3xl font-bold mb-6 text-gray-900 text-center">The FOMO25 Challenge</h1>
+    <h1 class="text-2xl font-bold mb-6 text-gray-900 text-center">The FOMO25 Challenge</h1>
     <h2 class="text-2xl font-bold text-left mb-8">Overview</h2>
     <p class="text-gray-700 text-md mb-8">
         This challenge seeks to investigate the few-shot generalisation properties of foundation models
-        in the context of real-world brain MRI data by evaluating models on <span class="font-bold">three large
+        in the context of real-world brain MRI data by first<span class="font-bold"> pretraining on a large unlabelled
+            dataset</span> before evaluating models on <span class="font-bold">three large
             clinical, multi-vendor, and multi-center datasets.</span> The concept is to evaluate <i>the same</i>
         pretrained models on multiple downstream
         tasks, to understand the effects of different pre-training paradigms and configurations on
@@ -20,11 +21,12 @@ permalink: /challenge
         <img src="images/challenge.png" alt="FOMO 2025 Challenge" class="w-full h-auto rounded-lg">
     </div>
     <p class="text-gray-700 text-sm mb-y-12 pt-8">
-        <strong>Figure 1:</strong> The figure shows the challenge logistics.
+        <strong>Figure 1:</strong> Participants will first <i>pretrain</i> on a large unlabelled dataset before
+        evaluating the same pretrained model on three large clinical, multi-vendor, and multi-center datasets.
     </p>
     <div class="space-y-6 my-12">
         <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-            <h2 class="text-2xl font-bold text-left mb-8">Challenge Logistics TLDR;</h2>
+            <h2 class="text-2xl font-bold text-left mb-8">Challenge Logistics TL;DR</h2>
             <div class="flex items-start">
                 <div class="flex-shrink-0">
                     <div
@@ -75,10 +77,15 @@ permalink: /challenge
                     </h3>
                     <p class="text-gray-700">
                         Participants may use their own data for pretraining, but this is restricted to a separate track.
-                        In this way participants are able to showcase their own models, however <strong>without
-                            being
-                            eligble
-                            for cash prices</strong>.
+                        In this way participants are able to showcase their own models, however <strong>without being
+                            eligble for cash prices</strong>.
+                        <span class="relative text-black"> Participants are
+                            <span
+                                class="bg-gradient-to-r from-red-200 to-yellow-200 absolute inset-x-0 top-full h-1 "></span>
+                            <span class="relative text-black"><i>not allowed</i></span> to use additional data
+                            for
+                            finetuning.
+                        </span>
                     </p>
                 </div>
             </div>
@@ -139,13 +146,94 @@ permalink: /challenge
         </div>
     </div>
     <hr class="my-12 border-t-2 border-gray-300">
-    <h2 class="text-2xl font-bold text-left mb-8 my-12">Tasks</h2>
+    <h2 class="text-2xl font-bold text-left mb-8 my-12">Tasks & Data</h2>
+    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+        <div class="flex flex-col md:flex-row items-stretch">
+            <!-- Container with dotted border for pretraining and finetuning data - now fixed 2/3 width -->
+            <div
+                class="flex-grow md:w-2/3 border-2 border-dotted border-gray-500 rounded-lg p-3 mb-4 md:mb-0 md:mr-4 relative">
+                <!-- Label at the top of the box -->
+                <div class="absolute -top-3 left-4 bg-gray-100 px-2 text-sm font-semibold text-indigo-700">
+                    Provided to Participants
+                </div>
 
-    <h3 class="text-xl font-bold text-left my-4">Pretraining</h3>
+                <div class="flex flex-col md:flex-row h-full">
+                    <!-- Pretraining Data - fix at exactly 50% of container width -->
+                    <div class="md:w-1/2 p-4">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Pretraining Data</h3>
+                        <ul class="list-disc list-inside text-gray-700">
+                            <li><strong>Subjects:</strong> 14,782</li>
+                            <li><strong>Sessions:</strong> 17,003</li>
+                            <li><strong>Scans:</strong> 54,583</li>
+                            <li><strong>Sequences:</strong> T1, T2, Flair, T1c, T2*, SWI and DWI.</li>
+                        </ul>
+                        <span
+                            class="bg-blue-100 text-blue-800 text-xs font-semibold mt-2 mr-2 px-2.5 py-0.5 rounded whitespace-nowrap w-max inline-block overflow-hidden text-ellipsis">Clinical-quality</span>
+                        <span
+                            class="bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded whitespace-nowrap w-max inline-block overflow-hidden text-ellipsis">Research-quality</span>
+                    </div>
+                    <!-- Finetuning Data - fix at exactly 50% of container width -->
+                    <div class="md:w-1/2 p-4">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Finetuning Data</h3>
+                        <ul class="list-disc list-inside text-gray-700">
+                            <li><strong>Infarcts:</strong> 22 cases</li>
+                            <li><strong>Meningiomas:</strong> 23 cases</li>
+                            <li><strong>Brain Age:</strong> 200 cases</li>
+                        </ul>
+                        <span
+                            class="bg-blue-100 text-blue-800 text-xs font-semibold mt-2 mr-2 px-2.5 py-0.5 rounded whitespace-nowrap w-max inline-block overflow-hidden text-ellipsis">Clinical-quality</span>
+                        <span
+                            class="bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded whitespace-nowrap w-max inline-block overflow-hidden text-ellipsis">Few-shot</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Evaluation Data - fixed at 1/3 width to match other columns -->
+            <div class="md:w-1/3 p-4">
+                <h3 class="text-lg font-bold text-gray-900 mb-2">Evaluation Data</h3>
+                <ul class="list-disc list-inside text-gray-700">
+                    <li><strong>Infarcts:</strong> 400 cases</li>
+                    <li><strong>Meningiomas:</strong> 200 cases</li>
+                    <li><strong>Brain Age:</strong> 1,000 cases</li>
+                </ul>
+                <span
+                    class="bg-yellow-100 text-yellow-800 text-xs font-semibold mt-2 mr-2 px-2.5 py-0.5 rounded whitespace-nowrap w-max inline-block overflow-hidden text-ellipsis">Out-of-domain</span>
+
+                <span
+                    class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded whitespace-nowrap w-max inline-block overflow-hidden text-ellipsis">Clinical-quality</span>
+                <p class="text-gray-600 italic mt-4">
+                    <strong>Note:</strong> 20% of the evaluation data will be used for pre-evaluation and a pre-deadline
+                    leaderboard.
+                </p>
+            </div>
+        </div>
+    </div>
+    <h3 class="text-xl font-bold text-left mb-4 mt-12">Pretraining</h3>
     <p class=" text-gray-700 text-md mb-6">
-        TODO: Add description of pretraining task.
+        The provided pretraining data is a large-scale dataset of brain MRI scans, including both clinical and
+        non-clinical scans. The dataset is designed to be representative of the diversity of brain MRI data encountered
+        in clinical practice. The dataset includes a wide range of sequences, including T1, MPRAGE, T2, T2*, Flair, SWI,
+        T1ce, PD, DWI, ADC, and more. The dataset is split into 14,782 subjects, with a total of 17,003 sessions and
+        54,583 scans. All data is provided as NIFTY-files.
     </p>
-    <h3 class="text-xl font-bold text-left my-4">Finetuning</h3>
+    <p>
+        The dataset format is provided as one large standardized, preprocessed (including co-registered and reoritented
+        to RAS orientation) dataset and is collected from the following public sorces: OASIS <a href="#citation-section"
+            class="text-red-600 font-semibold hover:underline">[1, 2]</a>, PPMI <a href="#citation-section"
+            class="text-green-600 font-semibold hover:underline">[3]</a>, BraTS
+        <a href="#citation-section" class="text-blue-600 font-semibold hover:underline">[4-8]</a>, MSD <a
+            href="#citation-section" class="text-red-600 font-semibold hover:underline">[9]</a>, IXI <a
+            href="#citation-section" class="text-green-600 font-semibold hover:underline">[10]</a>, SOOP <a
+            href="#citation-section" class="text-blue-600 font-semibold hover:underline">[11]</a>, NIMH <a
+            href="#citation-section" class="text-red-600 font-semibold hover:underline">[12]</a>, DLBS <a
+            href="#citation-section" class="text-green-600 font-semibold hover:underline">[13]</a>, IDEAS
+        <a href="#citation-section" class="text-blue-600 font-semibold hover:underline">[14]</a>, ARC
+        <a href="#citation-section" class="text-red-600 font-semibold hover:underline">[15]</a>,
+        MBSR <a href="#citation-section" class="text-green-600 font-semibold hover:underline">[16]</a>, UCLA <a
+            href="#citation-section" class="text-blue-600 font-semibold hover:underline">[17]</a> & MGH Wild
+        <a href="#citation-section" class="text-red-600 font-semibold hover:underline">[18]</a>.
+    </p>
+    <h3 class="text-xl font-bold text-left mb-4 mt-12">Finetuning</h3>
     <!-- Task 1 -->
     <h4 class="text-md font-semibold text-left mt-4 mb-2">Task 1: Infarct Detection</h4>
     <div class="mb-0">
@@ -157,7 +245,8 @@ permalink: /challenge
             18-year-old or older patients with possible brain infarct(s). Subjects underwent an MRI scan and were
             subsequently diagnosed with infarcts and a control group in 2019 in multiple hospitals in Denmark
             (evaluation
-            data) and India (fine-tuning data). Finetuning data is acquired from GE, Siemens scanners. Evaluation data
+            data) and India (fine-tuning data). Finetuning data is acquired from GE, Siemens scanners. Evaluation
+            data
             is acquired from a diverse set of scanners from GE, Siemens and
             Philips. All scanners are 1.5T or 3T.
         </p>
@@ -171,7 +260,8 @@ permalink: /challenge
         </p>
         <p class="text-gray-700 text-md mb-2">
             <strong class="inline-block font-medium">Dataset sizes:</strong>
-            Fine-tune cases: 24. Validation cases: 80. Test cases: 320. <i>Each case represent different subjects.</i>
+            Fine-tune cases: 24. Validation cases: 80. Test cases: 320. <i>Each case represent different
+                subjects.</i>
         </p>
         <p class="text-gray-700 text-md mb-8">
             <strong class="inline-block font-medium">Assesment Metric:</strong>
@@ -188,7 +278,8 @@ permalink: /challenge
         <p class="text-gray-700 text-md mb-2">
             <strong class="inline-block font-medium">Cohort:</strong>
             18-year-old or older preoperative meningioma patients. Subjects who underwent an MRI diagnosed with
-            preoperative meningioma in 2019 in multiple hospitals in Denmark (evaluation data) and India (fine-tuning
+            preoperative meningioma in 2019 in multiple hospitals in Denmark (evaluation data) and India
+            (fine-tuning
             data). Finetuning data is acquired from GE, Siemens scanners. Evaluation data
             is acquired from a diverse set of scanners from GE, Siemens and
             Philips. All scanners are 1.5T or 3T.
@@ -203,7 +294,8 @@ permalink: /challenge
         </p>
         <p class="text-gray-700 text-md mb-2">
             <strong class="inline-block font-medium">Dataset sizes:</strong>
-            Fine-tune cases: 22. Validation cases: 40. Test cases: 160. <i>Each case represent different subjects.</i>
+            Fine-tune cases: 22. Validation cases: 40. Test cases: 160. <i>Each case represent different
+                subjects.</i>
         </p>
         <p class="text-gray-700 text-md mb-8">
             <strong class="inline-block font-medium">Assesment Metric:</strong>
@@ -236,7 +328,8 @@ permalink: /challenge
         </p>
         <p class="text-gray-700 text-md mb-2">
             <strong class="inline-block font-medium">Dataset sizes:</strong>
-            Fine-tune cases: 100. Validation Cases: 200. Test cases: 800 <i>Each case represent different subjects.</i>
+            Fine-tune cases: 100. Validation Cases: 200. Test cases: 800 <i>Each case represent different
+                subjects.</i>
         </p>
         <p class="text-gray-700 text-md mb-8">
             <strong class="inline-block font-medium">Assesment Metric:</strong>
@@ -247,7 +340,29 @@ permalink: /challenge
     <hr class="my-12 border-t-2 border-gray-300">
     <h2 class="text-2xl font-bold text-left mb-8 my-12">Code</h2>
     <p class=" text-gray-700 text-md mb-6">
-        TODO: Add a description about this.
+        Participants are provided with a baseline framework to carry out both pretraining and
+        finetuning, enabling participants to concentrate on specific components of the workflow.
+        The baseline framework includes scripts for data preprocessing, model training, and evaluation. It is designed
+        to be modular and extensible, allowing participants to easily integrate their own methods. Detailed
+        documentation and examples are provided in the repository to help participants get started quickly.
+
+        The code is available <a href="https://github.com/your-repo-link" class="text-blue-500 underline">here</a>.
+    </p>
+    <h3 class="text-xl font-semibold text-left my-4">Pretraining</h3>
+    <p class="text-gray-700 text-md">
+        The pretraining code is based on Masked Autoencoders (MAE) using the AMAES framework
+        <a href="#citation-section" class="text-green-600 font-semibold hover:underline">[19]</a>. This framework
+        provides
+        a
+        resilient and efficient implementation for self-supervised learning on medical imaging data, enabling
+        participants to leverage state-of-the-art techniques for pretraining.
+    </p>
+    <h3 class="text-xl font-semibold text-left my-4">Finetuning</h3>
+    <p class="text-gray-700 text-md">
+        The finetuning code is using the Yucca framework <a href="#citation-section"
+            class="text-blue-600 font-semibold hover:underline">[20]</a>. The framework is designed to simplify the
+        process of fine-tuning models for medical image analysis tasks, providing utilities for data handling, model
+        training, and evaluation.
     </p>
     <hr class="my-12 border-t-2 border-gray-300">
     <h2 class="text-2xl font-bold text-left mb-8 my-12">Leaderboard & Evaluation</h2>
@@ -257,24 +372,21 @@ permalink: /challenge
     <ol class="list-decimal list-inside text-gray-700 mx-4 space-y-4 mb-8">
         <li>
             <span class="font-bold">No additional data allowed:</span> Challenge participants can only use data
-            provided
-            in the challenge for their submissions.
+            provided in the challenge for their submissions.
         </li>
         <li>
-            <span class="font-bold">Any data allowed:</span> Challenge participants can use any data, including
-            private
-            data, for their submissions. This track includes submissions using any form of segmentation maps
-            obtained
-            through manual labor or disease diagnosis information during pre-training. All data used must be
-            specified
-            and properly cited.
+            <span class="font-bold">Any data allowed for pretraining:</span> Challenge participants can use any data,
+            including private data, for their submissions. This track includes submissions using any form of
+            segmentation maps obtained through manual labor or disease diagnosis information during pre-training. All
+            data used must be specified and properly cited. Participants are not allowed to use private data for
+            finetuning.
         </li>
     </ol>
     </p>
     <h3 class="text-xl font-semibold text-left my-4">Leaderboard</h3>
     <p class=" text-gray-700 text-md mb-6">
-        For each task, all test cases are assigned uniform weight and each metric is averaged over all cases in the test
-        set.
+        For each task, all test cases are assigned uniform weight and each metric is averaged over all cases in the
+        test set.
     </p>
     <h4 class="text-md font-semibold text-left my-4">Per-task Leaderboard</h4>
     <p class=" text-gray-700 text-md mb-6">
@@ -286,10 +398,10 @@ permalink: /challenge
         submissions per task plus one.) </p>
     <h4 class="text-md font-semibold text-left my-4">Unified Leaderboard</h4>
     <p class=" text-gray-700 text-md mb-6">
-        For each pretraining configuration, the same pretrained checkpoint can be fine-tuned to each of the three tasks.
-        Per pre-training checkpoint, an overall rank is then calculated as the average rank of each task. For partial
-        submissions, that is submissions that have only submitted models for a subset of the three tasks, the worst
-        possible rank is used in the average (defined as number of valid submissions per task plus one.)</p>
+        For each pretraining configuration, the same pretrained checkpoint can be fine-tuned to each of the three
+        tasks. Per pre-training checkpoint, an overall rank is then calculated as the average rank of each task. For
+        partial submissions, that is submissions that have only submitted models for a subset of the three tasks, the
+        worst possible rank is used in the average (defined as number of valid submissions per task plus one.)</p>
 
     <hr class="my-12 border-t-2 border-gray-300">
     <h2 class="text-2xl font-bold text-left mb-8 my-12">Publication Policy</h2>
@@ -329,4 +441,179 @@ permalink: /challenge
         other
         track.
     </p>
+</div>
+<div id="citation-section" class="bg-white text-gray-900 max-w-4xl mx-auto px-8 py-16 my-8 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">Refferences</h3>
+        <p class="text-gray-700 text-md mb-5">
+            <span class="text-red-600 font-semibold">[1]</span>
+            Open Access Series of Imaging Studies (OASIS):
+            Cross-Sectional MRI Data in Young, Middle Aged, Nondemented, and Demented Older Adults. Marcus, DS, Wang,
+            TH, Parker, J, Csernansky, JG, Morris, JC, Buckner, RL. Journal of Cognitive Neuroscience, 19, 1498-1507.
+        </p>
+        <p class="text-gray-700 text-md mb-5">
+            <span class="text-red-600 font-semibold">[2]</span>
+            Open Access Series of Imaging Studies (OASIS):
+            Longitudinal MRI Data in Nondemented and Demented Older Adults. Marcus, DS, Fotenos, AF, Csernansky, JG,
+            Morris, JC, Buckner, RL, 2010. Journal of Cognitive Neuroscience, 22, 2677-2684. doi:
+            10.1162/jocn.2009.21407
+        </p>
+        <p class="text-gray-700 text-md mb-5">
+            <span class="text-green-600 font-semibold">[3]</span>
+            Marek, K., et. al.: The parkinson progression marker
+            tive (PPMI). Progress in Neurobiology, Volume 95,
+            Issue
+            4, 2011, Pages 629-635, ISSN 0301-0082, https://doi.org/10.1016/j.pneurobio.2011.09.005.
+            https://www.sciencedirect.com/science/article/pii/S0301008211001651.
+        </p>
+        <p class="text-gray-700 text-md mb-5">
+            <span class="text-blue-600 font-semibold">[4]</span>
+            LaBella D, Adewole M, Alonso-Basanta M, Altes T, Anwar
+            SM, Baid U, Bergquist T, Bhalerao R, Chen S, Chung V, Conte GM, Dako F, Eddy J, Ezhov I, Godfrey D, Hilal F,
+            Familiar A, Farahani K, Iglesias JE, Jiang Z, Johanson E, Kazerooni AF, Kent C, Kirkpatrick J, Kofler F,
+            Leemput KV, Li HB, Liu X, Mahtabfar A, McBurney-Lin S, McLean R, Meier Z, Moawad AW, Mongan J, Nedelec P,
+            Pajot M, Piraud M, Rashid A, Reitman Z, Shinohara RT, Velichko Y, Wang C, Warman P, Wiggins W, Aboian M,
+            Albrecht J, Anazodo U, Bakas S, Flanders A, Janas A, Khanna G, Linguraru MG, Menze B, Nada A, Rauschecker
+            AM, Rudie J, Tahon NH, Villanueva-Meyer J, Wiestler B, Calabrese E. The ASNR-MICCAI Brain Tumor Segmentation
+            (BraTS) Challenge 2023: Intracranial Meningioma. ArXiv [Preprint]. 2023 May 12:arXiv:2305.07642v1. PMID:
+            37608937; PMCID: PMC10441446.
+        </p>
+        <p class="text-gray-700 text-md mb-5">
+            <span class="text-blue-600 font-semibold">[5]</span>
+            Moawad AW, Janas A, Baid U, Ramakrishnan D, Saluja R,
+            Ashraf N, Maleki N, Jekel L, Yordanov N, Fehringer P, Gkampenis A, Amiruddin R, Manteghinejad A, Adewole M,
+            Albrecht J, Anazodo U, Aneja S, Anwar SM, Bergquist T, Chiang V, Chung V, Conte GM, Dako F, Eddy J, Ezhov I,
+            Khalili N, Farahani K, Iglesias JE, Jiang Z, Johanson E, Kazerooni AF, Kofler F, Krantchev K, LaBella D, Van
+            Leemput K, Li HB, Linguraru MG, Liu X, Meier Z, Menze BH, Moy H, Osenberg K, Piraud M, Reitman Z, Shinohara
+            RT, Wang C, Wiestler B, Wiggins W, Shafique U, Willms K, Avesta A, Bousabarah K, Chakrabarty S, Gennaro N,
+            Holler W, Kaur M, LaMontagne P, Lin M, Lost J, Marcus DS, Maresca R, Merkaj S, Cassinelli Pedersen G, von
+            Reppert M, Sotiras A, Teytelboym O, Tillmans N, Westerhoff M, Youssef A, Godfrey D, Floyd S, Rauschecker A,
+            Villanueva-Meyer J, Pflüger I, Cho J, Bendszus M, Brugnara G, Cramer J, Perez-Carillo GJG, Johnson DR, Kam
+            A, Kwan BYM, Lai L, Lall NU, Memon F, Krycia M, Patro SN, Petrovic B, So TY, Thompson G, Wu L, Schrickel EB,
+            Bansal A, Barkhof F, Besada C, Chu S, Druzgal J, Dusoi A, Farage L, Feltrin F, Fong A, Fung SH, Gray RI,
+            Ikuta I, Iv M, Postma AA, Mahajan A, Joyner D, Krumpelman C, Letourneau-Guillon L, Lincoln CM, Maros ME,
+            Miller E, Morón FEA, Nimchinsky EA, Ozsarlak O, Patel U, Rohatgi S, Saha A, Sayah A, Schwartz ED, Shih R,
+            Shiroishi MS, Small JE, Tanwar M, Valerie J, Weinberg BD, White ML, Young R, Zohrabian VM, Azizova A,
+            Brüßeler MMT, Ghonim M, Ghonim M, Okar A, Pasquini L, Sharifi Y, Singh G, Sollmann N, Soumala T, Taherzadeh
+            M, Vollmuth P, Foltyn-Dumitru M, Malhotra A, Abayazeed AH, Dellepiane F, Lohmann P, Pérez-García VM,
+            Elhalawani H, de Verdier MC, Al-Rubaiey S, Armindo RD, Ashraf K, Asla MM, Badawy M, Bisschop J, Lomer NB,
+            Bukatz J, Chen J, Cimflova P, Corr F, Crawley A, Deptula L, Elakhdar T, Shawali IH, Faghani S, Frick A,
+            Gulati V, Haider MA, Hierro F, Dahl RH, Jacobs SM, Hsieh KJ, Kandemirli SG, Kersting K, Kida L, Kollia S,
+            Koukoulithras I, Li X, Abouelatta A, Mansour A, Maria-Zamfirescu RC, Marsiglia M, Mateo-Camacho YS, McArthur
+            M, McDonnell O, McHugh M, Moassefi M, Morsi SM, Munteanu A, Nandolia KK, Naqvi SR, Nikanpour Y, Alnoury M,
+            Nouh AMA, Pappafava F, Patel MD, Petrucci S, Rawie E, Raymond S, Roohani B, Sabouhi S, Sanchez-Garcia LM,
+            Shaked Z, Suthar PP, Altes T, Isufi E, Dhemesh Y, Gass J, Thacker J, Tarabishy AR, Turner B, Vacca S,
+            Vilanilam GK, Warren D, Weiss D, Worede F, Yousry S, Lerebo W, Aristizabal A, Karargyris A, Kassem H, Pati
+            S, Sheller M, Link KEE, Calabrese E, Tahon NH, Nada A, Velichko YS, Bakas S, Rudie JD, Aboian M. The Brain
+            Tumor Segmentation - Metastases (BraTS-METS) Challenge 2023: Brain Metastasis Segmentation on Pre-treatment
+            MRI. ArXiv [Preprint]. 2024 Dec 9:arXiv:2306.00838v3. PMID: 37396600; PMCID: PMC10312806.
+        </p>
+        <p class="text-gray-700 text-md mb-5">
+            <span class="text-blue-600 font-semibold">[6]</span>
+            Kazerooni AF, Khalili N, Liu X, Haldar D, Jiang Z, Anwar SM, Albrecht J, Adewole M, Anazodo U, Anderson H,
+            Bagheri S, Baid U, Bergquist T, Borja AJ, Calabrese E, Chung V, Conte GM, Dako F, Eddy J, Ezhov I, Familiar
+            A, Farahani K, Haldar S, Iglesias JE, Janas A, Johansen E, Jones BV, Kofler F, LaBella D, Lai HA, Van
+            Leemput K, Li HB, Maleki N, McAllister AS, Meier Z, Menze B, Moawad AW, Nandolia KK, Pavaine J, Piraud M,
+            Poussaint T, Prabhu SP, Reitman Z, Rodriguez A, Rudie JD, Shaikh IS, Shah LM, Sheth N, Shinohara RT, Tu W,
+            Viswanathan K, Wang C, Ware JB, Wiestler B, Wiggins W, Zapaishchykova A, Aboian M, Bornhorst M, de Blank P,
+            Deutsch M, Fouladi M, Hoffman L, Kann B, Lazow M, Mikael L, Nabavizadeh A, Packer R, Resnick A, Rood B,
+            Vossough A, Bakas S, Linguraru MG. The Brain Tumor Segmentation (BraTS) Challenge 2023: Focus on Pediatrics
+            (CBTN-CONNECT-DIPGR-ASNR-MICCAI BraTS-PEDs). ArXiv [Preprint]. 2024 May 23:arXiv:2305.17033v7. PMID:
+            37292481; PMCID: PMC10246083.
+        </p>
+        <p class="text-gray-700 text-md mb-5">
+            <span class="text-blue-600 font-semibold">[7]</span>
+            Correia de Verdier, Maria & Saluja, Rachit & Gagnon, Louis & LaBella, Dominic & Baid, Ujjwall & Tahon,
+            Nourel Hoda & Foltyn-Dumitru, Martha & Zhang, Jikai & Alafif, Maram & Baig, Saif & Chang, Ken & D'Anna,
+            Gennaro & Deptula, Lisa & Gupta, Diviya & Haider, Muhammad Ammar & Hussain, Ali & Iv, Michael & Kontzialis,
+            Marinos & Manning, Paul & Rudie, Jeffrey. (2024). The 2024 Brain Tumor Segmentation (BraTS) challenge:
+            glioma segmentation on post-treatment MRI. 10.48550/arXiv.2405.18368.
+        </p>
+        <p class="text-gray-700 text-md mb-5">
+            <span class="text-blue-600 font-semibold">[8]</span>
+            Adewole M, Rudie JD, Gbdamosi A, Toyobo O, Raymond C, Zhang D, Omidiji O, Akinola R, Suwaid MA, Emegoakor A,
+            Ojo N, Aguh K, Kalaiwo C, Babatunde G, Ogunleye A, Gbadamosi Y, Iorpagher K, Calabrese E, Aboian M,
+            Linguraru M, Albrecht J, Wiestler B, Kofler F, Janas A, LaBella D, Kzerooni AF, Li HB, Iglesias JE, Farahani
+            K, Eddy J, Bergquist T, Chung V, Shinohara RT, Wiggins W, Reitman Z, Wang C, Liu X, Jiang Z, Familiar A, Van
+            Leemput K, Bukas C, Piraud M, Conte GM, Johansson E, Meier Z, Menze BH, Baid U, Bakas S, Dako F, Fatade A,
+            Anazodo UC. The Brain Tumor Segmentation (BraTS) Challenge 2023: Glioma Segmentation in Sub-Saharan Africa
+            Patient Population (BraTS-Africa). ArXiv [Preprint]. 2023 May 30:arXiv:2305.19369v1. PMID: 37396608; PMCID:
+            PMC10312814.
+        </p>
+
+        <p class="text-gray-700 text-md mb-5">
+            <span class="text-red-600 font-semibold">[9]</span>
+            Simpson, A., Antonelli, M., Bakas, S., Bilello, M.,
+            Farahani, K., Ginneken, B., Kopp-Schneider, A.,
+            Landman,
+            B., Litjens, G., Menze, B., Ronneberger, O., Sum- mers, R., Bilic, P., Christ, P., Do, R., Gollub, M.,
+            Golia-Pernicka, J., Heckers, S.,Jarnagin, W., Cardoso, M.J.: A large annotated medical image dataset for the
+            development and evaluation of segmentation algorithms (02 2019).
+        </p>
+        <p class="text-gray-700 text-md mb-5">
+            <span class="text-green-600 font-semibold">[10]</span> http://brain-development.org/ixi-dataset/
+        </p>
+        <p class="text-gray-700 text-md mb-5">
+            <span class="text-blue-600 font-semibold">[11]</span>
+            Chris Rorden and John Absher and Roger Newman-Norlund
+            (2024). Stroke Outcome Optimization Project
+            (SOOP).
+            OpenNeuro. [Dataset] doi: doi:10.18112/openneuro.ds004889.v1.1.2
+        </p>
+        <p class="text-gray-700 text-md mb-5">
+            <span class="text-red-600 font-semibold">[12]</span> A
+            llison C. Nugent and Adam G Thomas and Margaret
+            Mahoney and Alison Gibbons and Jarrod Smith and Antoinette Charles and Jacob S Shaw and Jeffrey D Stout and
+            Anna M Namyst and Arshitha Basavaraj and Eric Earl and Dustin Moraczewski and Emily Guinee and Michael Liu
+            and Travis Riddle and Joseph Snow and Shruti Japee and Morgan Andrews and Adriana Pavletic and Stephen
+            Sinclair and Vinai Roopchansingh and Peter A Bandettini and Joyce Chung (2025). The NIMH Healthy Research
+            Volunteer Dataset. OpenNeuro. [Dataset] doi: doi:10.18112/openneuro.ds005752.v2.1.0
+        </p>
+        <p class="text-gray-700 text-md mb-5">
+            <span class="text-green-600 font-semibold">[13]</span>
+            Denise Park and Joseph Hennessee and Evan T. Smith and Micaela Chan and Carson Katen and Julia Bacci and
+            Sarah Frank and Sarah Monier and Alexandra Collyer and Carol Tamminga and William Moore and Neil Rofsky and
+            Karen Rodrigue and Kristen Kennedy and Gagan Wig (2024). The Dallas Lifespan Brain Study. OpenNeuro.
+            [Dataset] doi: doi:10.18112/openneuro.ds004856.v1.2.0
+        </p>
+        <p class="text-gray-700 text-md mb-5">
+            <span class="text-blue-600 font-semibold">[14]</span>
+            Peter N. Taylor and Yujiang Wang and Callum Simpson and Vytene Janiukstyte and Jonathan Horsley and Karoline
+            Leiberg and Beth Little and Harry Clifford and Sophie Adler and Sjoerd B. Vos and Gavin P Winston and Andrew
+            W McEvoy and Anna Miserocchi and Jane de Tisi and John S Duncan (2024). The Imaging Database for Epilepsy
+            And Surgery (IDEAS). OpenNeuro. [Dataset] doi: doi:10.18112/openneuro.ds005602.v1.0.0
+        </p>
+        <p class="text-gray-700 text-md mb-5">
+            <span class="text-red-600 font-semibold">[15]</span>
+            Makayla Gibson and Roger Newman-Norlund and Leonardo
+            Bonilha and Julius Fridriksson and Gregory Hickok and Argye E. Hillis and Dirk-Bart den Ouden and Chris
+            Rorden (2024). Aphasia Recovery Cohort (ARC) Dataset. OpenNeuro. [Dataset] doi:
+            doi:10.18112/openneuro.ds004884.v1.0.2
+        </p>
+        <p class="text-gray-700 text-md mb-5">
+            <span class="text-green-600 font-semibold">[16]</span>
+            David Seminowicz and Shana Burrowes and Alexandra Kearson and Jing Zhang and Samuel Krimmel and Luma Samawi
+            and Andrew Furman and Michael Keaser (2024). MBSR. OpenNeuro. [Dataset] doi:
+            doi:10.18112/openneuro.ds005016.v1.1.1
+        </p>
+        <p class="text-gray-700 text-md mb-5">
+            <span class="text-blue-600 font-semibold">[17]</span>
+            Bilder, R and Poldrack, R and Cannon, T and London, E and Freimer, N and Congdon, E and Karlsgodt, K and
+            Sabb, F (2018). UCLA Consortium for Neuropsychiatric Phenomics LA5c Study. OpenNeuro. [Dataset] doi:
+        </p>
+        <p class="text-gray-700 text-md mb-5">
+            <span class="text-red-600 font-semibold">[18]</span> Juan E. Iglesias et al. ,SynthSR: A public AI tool to
+            turn heterogeneous clinical brain scans into
+            high-resolution T1-weighted images for 3D morphometry.Sci. Adv.9,eadd3607(2023).DOI:10.1126/sciadv.add3607.
+        </p>
+        <p class="text-gray-700 text-md mb-5">
+            <span class="text-green-600 font-semibold">[19]</span> A Munk, J Ambsdorf, S Llambias, M Nielsen (2024).
+            AMAES: Augmented Masked Autoencoder Pretraining on Public Brain MRI Data for 3D-Native Segmentation.
+            In Proceedings of first MICCAI Workshop on Advancing Data Solutions in Medical Imaging AI (ADSMI 2024).
+        </p>
+        <p class="text-gray-700 text-md mb-5">
+            <span class="text-blue-600 font-semibold">[20]</span> SN Llambias, J Machnio, A Munk, J Ambsdorf, M
+            Nielsen,
+            MM Ghazi (2024).
+            Yucca: A deep learning framework for medical image analysis. ArXiv preprint.
+        </p>
 </div>
