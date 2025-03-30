@@ -13,9 +13,9 @@ permalink: /challenge
             dataset</span> before evaluating models on <span class="font-bold">three large
             clinical, multi-vendor, and multi-center datasets.</span> The concept is to evaluate <i>the same</i>
         pretrained models on multiple downstream
-        tasks, to understand the effects of different pre-training paradigms and configurations on
+        tasks, to understand the effects of different pretraining paradigms and configurations on
         downstream performance and ultimately both identify the most promising methodologies and quantify the benefits
-        of self-supervised pre-training.
+        of self-supervised pretraining.
     </p>
     <div class="flex justify-center">
         <img src="images/challenge.png" alt="FOMO 2025 Challenge" class="w-full h-auto rounded-lg">
@@ -41,7 +41,8 @@ permalink: /challenge
                     <p class="text-gray-700">
                         Participants are provided with a baseline framework to carry out both pretraining and
                         finetuning, enabling them to concentrate on specific components of the workflow. The code is
-                        available <a href="https://github.com/your-repo-link" class="text-blue-500 underline">here</a>.
+                        available <a href="https://github.com/fomo25/baseline-codebase"
+                            class="text-blue-500 underline">here</a>.
                     </p>
                 </div>
             </div>
@@ -58,7 +59,7 @@ permalink: /challenge
                     <p class="text-gray-700">
                         Participants will compete for a total cash prize of $1000, distributed among the top-performing
                         teams. The exact distribution will be announced closer to the competition deadline. Winners will
-                        be determined based on their performance on the evaluation metrics for each task.
+                        be determined based on their aggregated performance on the evaluation metrics for each task.
                     </p>
                 </div>
             </div>
@@ -211,14 +212,13 @@ permalink: /challenge
     <h3 class="text-xl font-bold text-left mb-4 mt-12">Pretraining</h3>
     <p class=" text-gray-700 text-md mb-6">
         The provided pretraining data is a large-scale dataset of brain MRI scans, including both clinical and
-        non-clinical scans. The dataset is designed to be representative of the diversity of brain MRI data encountered
-        in clinical practice. The dataset includes a wide range of sequences, including T1, MPRAGE, T2, T2*, Flair, SWI,
-        T1ce, PD, DWI, ADC, and more. The dataset is split into 14,782 subjects, with a total of 17,003 sessions and
-        54,583 scans. All data is provided as NIFTY-files.
+        research-grade scans. The dataset includes a wide range of sequences, including T1, MPRAGE, T2, T2*, Flair, SWI,
+        T1c, PD, DWI, ADC, and more. The dataset is split into 14,782 subjects, with a total of 17,003 sessions and
+        54,583 scans. All data is provided as NIfTY-files.
     </p>
     <p>
-        The dataset format is provided as one large standardized, preprocessed (including co-registered and reoritented
-        to RAS orientation) dataset and is collected from the following public sorces: OASIS <a href="#citation-section"
+        The dataset format is provided as one large standardized, preprocessed (including RAS reoriented, co-registered)
+        dataset and is collected from the following public sorces: OASIS <a href="#citation-section"
             class="text-gray-600 font-semibold hover:underline">[1, 2]</a>, PPMI <a href="#citation-section"
             class="text-gray-600 font-semibold hover:underline">[3]</a>, BraTS
         <a href="#citation-section" class="text-gray-600 font-semibold hover:underline">[4-8]</a>, MSD <a
@@ -245,26 +245,26 @@ permalink: /challenge
             18-year-old or older patients with possible brain infarct(s). Subjects underwent an MRI scan and were
             subsequently diagnosed with infarcts and a control group in 2019 in multiple hospitals in Denmark
             (evaluation
-            data) and India (fine-tuning data). Finetuning data is acquired from GE, Siemens scanners. Evaluation
+            data) and India (finetuning data). Finetuning data is acquired from GE, Siemens scanners. Evaluation
             data
             is acquired from a diverse set of scanners from GE, Siemens and
             Philips. All scanners are 1.5T or 3T.
         </p>
         <p class="text-gray-700 text-md mb-2">
             <strong class="inline-block font-medium">Sequences:</strong>
-            Sequences always include T2 FLAIR, DWI (b-value 1000), and either T2* or SWI images.
+            Sequences always include T2 FLAIR, DWI (b-value 1000), ADC, and either T2* or SWI images.
         </p>
         <p class="text-gray-700 text-md mb-2">
             <strong class="inline-block font-medium">Available additional information:</strong>
-            A binary mask of the infartcs is provided for the fine-tuning data.
+            A binary mask of the infartcs is provided for the finetuning data.
         </p>
         <p class="text-gray-700 text-md mb-2">
             <strong class="inline-block font-medium">Dataset sizes:</strong>
-            Fine-tune cases: 24. Validation cases: 80. Test cases: 320. <i>Each case represent different
+            Finetune cases: 24. Validation cases: 80. Test cases: 320. <i>Each case represent different
                 subjects.</i>
         </p>
         <p class="text-gray-700 text-md mb-8">
-            <strong class="inline-block font-medium">Assesment Metric:</strong>
+            <strong class="inline-block font-medium">Assessment Metric:</strong>
             AUROC (Area Under the Receiver Operator Curve (ROC))
         </p>
     </div>
@@ -279,7 +279,7 @@ permalink: /challenge
             <strong class="inline-block font-medium">Cohort:</strong>
             18-year-old or older preoperative meningioma patients. Subjects who underwent an MRI diagnosed with
             preoperative meningioma in 2019 in multiple hospitals in Denmark (evaluation data) and India
-            (fine-tuning
+            (finetuning
             data). Finetuning data is acquired from GE, Siemens scanners. Evaluation data
             is acquired from a diverse set of scanners from GE, Siemens and
             Philips. All scanners are 1.5T or 3T.
@@ -290,15 +290,15 @@ permalink: /challenge
         </p>
         <p class="text-gray-700 text-md mb-2">
             <strong class="inline-block font-medium">Available additional information:</strong>
-            For the fine-tuning data, a binary mask of meningiomas will be provided.
+            For the finetuning data, a binary mask of meningiomas will be provided.
         </p>
         <p class="text-gray-700 text-md mb-2">
             <strong class="inline-block font-medium">Dataset sizes:</strong>
-            Fine-tune cases: 22. Validation cases: 40. Test cases: 160. <i>Each case represent different
+            Finetuning cases: 23. Validation cases: 40. Test cases: 160. <i>Each case represent different
                 subjects.</i>
         </p>
         <p class="text-gray-700 text-md mb-8">
-            <strong class="inline-block font-medium">Assesment Metric:</strong>
+            <strong class="inline-block font-medium">Assessment Metric:</strong>
             <u>Overlap-based metric:</u> Dice Similarity Coefficient (DSC). <u>Boundary-based metric:</u>
             Normal Surface Distance
             (NSD)
@@ -313,10 +313,9 @@ permalink: /challenge
         </p>
         <p class="text-gray-700 text-md mb-2">
             <strong class="inline-block font-medium">Cohort:</strong>
-            18-year-old or older patients with possible brain infarct(s). Subjects underwent an MRI scan and were
-            subsequently diagnosed with infarcts and a control group in 2019 in multiple hospitals in Denmark
-            (evaluation data) and Massachusetts General Hospital, Boston (fine-tuning data). Data is acquired from a
-            diverse set of scanners from GE, Siemens and Philips. All scanners are 1.5T or 3T.
+            Patients 18 years or older with no underlying brain conditions defined as patients with no neurological
+            conditions and not on brain-related medication. Subjects who underwent an MRI with no underlying brain
+            conditions in 2019 in multiple hospitals in Denmark (evaluation data) and Boston (finetuning data).
         </p>
         <p class="text-gray-700 text-md mb-2">
             <strong class="inline-block font-medium">Sequences:</strong>
@@ -328,11 +327,11 @@ permalink: /challenge
         </p>
         <p class="text-gray-700 text-md mb-2">
             <strong class="inline-block font-medium">Dataset sizes:</strong>
-            Fine-tune cases: 100. Validation Cases: 200. Test cases: 800 <i>Each case represent different
+            Finetuning cases: 100. Validation Cases: 200. Test cases: 800 <i>Each case represent different
                 subjects.</i>
         </p>
         <p class="text-gray-700 text-md mb-8">
-            <strong class="inline-block font-medium">Assesment Metric:</strong>
+            <strong class="inline-block font-medium">Assessment Metric:</strong>
             Absolute Error (AE), Correlation Coefficitent
         </p>
     </div>
@@ -342,11 +341,13 @@ permalink: /challenge
     <p class=" text-gray-700 text-md mb-6">
         Participants are provided with a baseline framework to carry out both pretraining and
         finetuning, enabling participants to concentrate on specific components of the workflow.
+        The provided code is designed to be a starting point, and not required for participation.
         The baseline framework includes scripts for data preprocessing, model training, and evaluation. It is designed
         to be modular and extensible, allowing participants to easily integrate their own methods. Detailed
         documentation and examples are provided in the repository to help participants get started quickly.
 
-        The code is available <a href="https://github.com/your-repo-link" class="text-blue-500 underline">here</a>.
+        The code is available <a href="https://github.com/fomo25/baseline-codebase"
+            class="text-blue-500 underline">here</a>.
     </p>
     <h3 class="text-xl font-semibold text-left my-4">Pretraining</h3>
     <p class="text-gray-700 text-md">
@@ -361,7 +362,7 @@ permalink: /challenge
     <p class="text-gray-700 text-md">
         The finetuning code is using the Yucca framework <a href="#citation-section"
             class="text-gray-600 font-semibold hover:underline">[20]</a>. The framework is designed to simplify the
-        process of fine-tuning models for medical image analysis tasks, providing utilities for data handling, model
+        process of finetuning models for medical image analysis tasks, providing utilities for data handling, model
         training, and evaluation.
     </p>
     <hr class="my-12 border-t-2 border-gray-300">
@@ -377,9 +378,14 @@ permalink: /challenge
         <li>
             <span class="font-bold">Any data allowed for pretraining:</span> Challenge participants can use any data,
             including private data, for their submissions. This track includes submissions using any form of
-            segmentation maps obtained through manual labor or disease diagnosis information during pre-training. All
-            data used must be specified and properly cited. Participants are not allowed to use private data for
-            finetuning.
+            segmentation maps obtained through manual labor or disease diagnosis information during pretraining. All
+            data used must be specified and properly cited.
+        </li>
+        <li><span class="font-bold">Additional data not allowed for finetuning:</span> The premise
+            of the challenge is to evaluate model's performance on few-shot generalization on clinical data. Allowing
+            participants to use their own data for finetuning would meaningfully divert from this.
+
+
         </li>
     </ol>
     </p>
@@ -392,14 +398,14 @@ permalink: /challenge
     <p class=" text-gray-700 text-md mb-6">
         A summary statistic defined as the average of all metrics in the task is used to make a
         per-task rank. Unified leaderboard: For each pretraining configuration, the same pretrained checkpoint can
-        be fine-tuned to each of the three tasks. Per pre-training checkpoint, an overall rank is then calculated as
+        be finetuned to each of the three tasks. Per pretraining checkpoint, an overall rank is then calculated as
         the average rank of each task. For partial submissions, that is submissions that have only submitted models
         for a subset of the three tasks, the worst possible rank is used in the average (defined as number of valid
         submissions per task plus one.) </p>
     <h4 class="text-md font-semibold text-left my-4">Unified Leaderboard</h4>
     <p class=" text-gray-700 text-md mb-6">
-        For each pretraining configuration, the same pretrained checkpoint can be fine-tuned to each of the three
-        tasks. Per pre-training checkpoint, an overall rank is then calculated as the average rank of each task. For
+        For each pretraining configuration, the same pretrained checkpoint can be finetuned to each of the three
+        tasks. Per pretraining checkpoint, an overall rank is then calculated as the average rank of each task. For
         partial submissions, that is submissions that have only submitted models for a subset of the three tasks, the
         worst possible rank is used in the average (defined as number of valid submissions per task plus one.)</p>
 
