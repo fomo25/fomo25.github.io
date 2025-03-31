@@ -24,6 +24,33 @@ permalink: /faq
     <div x-data="{ open: false }" class="border-b border-gray-200 pb-8">
         <h2 @click="open = !open"
             class="text-lg font-medium text-gray-900 cursor-pointer flex items-center justify-between hover:text-blue-600">
+            Which citations should i use for the pretraining dataset?
+            <span :class="open ? 'rotate-180' : ''" class="""transform transition-transform">
+                &#9660;
+            </span>
+        </h2>
+        <p x-show="open" class="mt-2 text-gray-600" x-cloak>
+            Please follow the <a href="/citation-policy"
+                class="text-blue-600 font-medium hover:text-blue-800 underline hover:no-underline transition duration-300">Citation
+                Policy</a>.
+        </p>
+    </div>
+    <div x-data="{ open: false }" class="border-b border-gray-200 pb-8">
+        <h2 @click="open = !open"
+            class="text-lg font-medium text-gray-900 cursor-pointer flex items-center justify-between hover:text-blue-600">
+            Where can i find the Synapse website?
+            <span :class="open ? 'rotate-180' : ''" class="""transform transition-transform">
+                &#9660;
+            </span>
+        </h2>
+        <p x-show="open" class="mt-2 text-gray-600" x-cloak>
+            The Synapse website can be found <a href="https://www.synapse.org/Synapse:syn64895667"
+                class="text-blue-600 font-medium hover:text-blue-800 underline hover:no-underline transition duration-300">here</a>.
+        </p>
+    </div>
+    <div x-data="{ open: false }" class="border-b border-gray-200 pb-8">
+        <h2 @click="open = !open"
+            class="text-lg font-medium text-gray-900 cursor-pointer flex items-center justify-between hover:text-blue-600">
             Computational Resource Requirements
             <span :class="open ? 'rotate-180' : ''" class="transform transition-transform">
                 &#9660;
