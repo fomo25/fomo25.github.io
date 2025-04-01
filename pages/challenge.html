@@ -73,12 +73,14 @@ permalink: /challenge
                 </div>
                 <div class="ml-4 pb-4">
                     <h3 class="text-lg font-semibold text-gray-900 mb-2">
-                        Own data allowed for pretraining <span class="bg-yellow-200 text-black p-1 px-2 rounded">
-                            in a separate track
+                        Two submission tracks: <span class="bg-yellow-200 text-black p-1 px-2 rounded">
+                            "Methods" and "Open".
                         </span>
                     </h3>
                     <p class="text-gray-700">
-                        Participants may use their own data for pretraining, but this is restricted to a separate track.
+                        On the "Method" track, participants are restricted to using the provided FOMO60K dataset for
+                        pretraining. On the "Open" track, participants can pretrain on <i>any</i> data, including
+                        private data.
                         <span class="relative text-black"> Participants are
                             <span
                                 class="bg-gradient-to-r from-red-200 to-yellow-200 absolute inset-x-0 top-full h-1 "></span>
@@ -117,6 +119,12 @@ permalink: /challenge
             <h3 class="text-lg font-bold text-gray-900">1 April</h3>
             <p class="text-gray-700">
                 Challenge opens!
+            </p>
+        </div>
+        <div class="mb-6">
+            <h3 class="text-lg font-bold text-gray-900">7 April</h3>
+            <p class="text-gray-700">
+                Code release of pretraining and finetuning code.
             </p>
         </div>
         <div class="mb-6">
@@ -381,14 +389,19 @@ permalink: /challenge
         For all tasks, the challenge will have two tracks:
     <ol class="list-decimal list-inside text-gray-700 mx-4 space-y-4 mb-8">
         <li>
-            <span class="font-bold">No additional data allowed:</span> Challenge participants can only use data
-            provided in the challenge for their submissions.
+            <span class="font-bold">Methods Track: No additional data allowed.</span> Challenge participants can only
+            use
+            the
+            large-scale FOMO60K dataset. This challenge track is intended to provide insights into methods development
+            for pretraining, finetuning and model architectures.
         </li>
         <li>
-            <span class="font-bold">Any data allowed for pretraining:</span> Challenge participants can use any data,
+            <span class="font-bold">Open Track: Any data allowed for pretraining.</span> Challenge participants can use
+            any data,
             including private data, for their submissions. This track includes submissions using any form of
             segmentation maps obtained through manual labor or disease diagnosis information during pretraining. All
-            data used must be specified and properly cited.
+            data used must be specified and properly cited. The track is intended to allow participants to showcase and
+            compare brain MRI Foundation Models.
         </li>
     </ol>
     For both tracks <span class="font-bold">additional is data not allowed for finetuning:</span> The premise
