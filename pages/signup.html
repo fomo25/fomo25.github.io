@@ -44,25 +44,25 @@ permalink: /signup
                     class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-gray-400 text-white font-bold">2</span>
             </div>
             <div class="flex-1">
-                <h2 class="text-lg font-semibold">Select Your Track</h2>
-                <p class="mt-1 text-sm text-gray-700 mb-4">Choose whether you want to use your own data for pretraining:
+                <h2 class="text-lg font-semibold">Select Your Intended Track</h2>
+                <p class="mt-1 text-sm text-gray-700 mb-4">This is non-binding.
                 </p>
 
                 <div class="mt-4 space-y-3">
                     <div class="flex items-center">
                         <input id="data-source-ppmi" name="data-source" type="radio" value="ppmi" x-model="dataSource"
                             class="h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="data-source-ppmi" class="ml-2 text-sm text-gray-700"><strong>Track 1 &
-                                2:</strong>I
+                        <label for="track-1" class="ml-2 text-sm text-gray-700"><strong>Track 1:
+                                Methods</strong> I
                             want
-                            to use the FOMO-54K pretraining dataset, and potentially my own data.</label>
+                            to use the FOMO60K pretraining dataset.</label>
                     </div>
                     <div class="flex items-center">
                         <input id="data-source-own" name="data-source" type="radio" value="own" x-model="dataSource"
                             class="h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="data-source-own" class="ml-2 text-sm text-gray-700"><strong>Track 2:
+                        <label for="track-2" class="ml-2 text-sm text-gray-700"><strong>Track 2: Any
                             </strong>I want
-                            to only use my own data. (No pretraining dataset will be provided).</label>
+                            to (also) use my own data.</label>
                     </div>
                 </div>
             </div>
@@ -340,7 +340,9 @@ Research on the effect of using SSL on robustness and few-shot properties of dee
                                     class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
                                 <label for="own-data-usage" class="ml-2 text-sm text-gray-700">I confirm that I have the
                                     legal right to use my own data for this challenge and that it complies with all
-                                    applicable privacy and data protection laws</label>
+                                    applicable privacy and data protection laws. Model weights will be processed on a
+                                    secure platform, and we are able to sign data processing agreements. Please contact
+                                    us for more info.</label>
                             </div>
                         </div>
                     </fieldset>
