@@ -7,7 +7,7 @@ permalink: /signup
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 <div class="bg-white text-gray-900 max-w-4xl mx-auto px-8 py-16 my-8 rounded-lg shadow-md"
-    x-data="{ checkboxSynapse: false, checkboxTerms: false, showForm: false, dataSource: 'ppmi' }">
+    x-data="{ checkboxSynapse: false, checkboxTerms: false, showForm: false, track1: false, track2: false }">
     <!-- Page Title -->
     <h1 class="text-2xl font-bold text-center mb-8">Signup for FOMO 2025 Challenge</h1>
 
@@ -44,22 +44,22 @@ permalink: /signup
                     class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-gray-400 text-white font-bold">2</span>
             </div>
             <div class="flex-1">
-                <h2 class="text-lg font-semibold">Select Your Intended Track</h2>
-                <p class="mt-1 text-sm text-gray-700 mb-4">This is non-binding.
+                <h2 class="text-lg font-semibold">Select Your Intended Track(s)</h2>
+                <p class="mt-1 text-sm text-gray-700 mb-4">This is non-binding. You can select one or both tracks.
                 </p>
 
                 <div class="mt-4 space-y-3">
                     <div class="flex items-center">
-                        <input id="data-source-track1" name="data-source" type="radio" value="track1"
-                            x-model="dataSource" class="h-4 w-4 text-indigo-600 border-gray-300">
+                        <input id="data-source-track1" name="track1" type="checkbox" x-model="track1"
+                            class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
                         <label for="data-source-track1" class="ml-2 text-sm text-gray-700"><strong>Track 1:
                                 Methods</strong> I
                             want
                             to use the FOMO60K pretraining dataset.</label>
                     </div>
                     <div class="flex items-center">
-                        <input id="data-source-track2" name="data-source" type="radio" value="track2"
-                            x-model="dataSource" class="h-4 w-4 text-indigo-600 border-gray-300">
+                        <input id="data-source-track2" name="track2" type="checkbox" x-model="track2"
+                            class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
                         <label for="data-source-track2" class="ml-2 text-sm text-gray-700"><strong>Track 2: Any
                             </strong>I want
                             to (also) use my own data.</label>
@@ -75,12 +75,16 @@ permalink: /signup
             <div class="mt-8">
                 <button
                     @click="showForm = true; highlightNewSection = true; setTimeout(() => { highlightNewSection = false; }, 3000); setTimeout(() => { document.getElementById('form-step-3').scrollIntoView({behavior: 'smooth', block: 'start'}); }, 100)"
-                    :disabled="!checkboxSynapse"
-                    :class="{'bg-indigo-600 hover:bg-indigo-700': checkboxSynapse, 'bg-gray-400 cursor-not-allowed': !checkboxSynapse}"
+                    :disabled="!checkboxSynapse || !(track1 || track2)"
+                    :class="{'bg-indigo-600 hover:bg-indigo-700': checkboxSynapse && (track1 || track2), 'bg-gray-400 cursor-not-allowed': !checkboxSynapse || !(track1 || track2)}"
                     class="py-2 px-4 rounded-md shadow text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                     Continue
                 </button>
             </div>
+        </div>
+        <!-- Error message for track selection -->
+        <div class="text-sm text-red-600 mt-2" x-show="checkboxSynapse && !(track1 || track2)">
+            Please select at least one track before continuing.
         </div>
     </div>
 
@@ -106,10 +110,8 @@ permalink: /signup
 
                 <!-- Data Source Selection Section - Hidden but still functional -->
                 <div class="hidden">
-                    <input id="form-data-source-ppmi" name="data-source" type="radio" value="track1"
-                        x-model="dataSource">
-                    <input id="form-data-source-own" name="data-source" type="radio" value="track2"
-                        x-model="dataSource">
+                    <input id="form-track1" name="track1" type="checkbox" x-model="track1">
+                    <input id="form-track2" name="track2" type="checkbox" x-model="track2">
                 </div>
 
                 <!-- Section: Synapse Information -->
@@ -243,9 +245,8 @@ permalink: /signup
                                         Agreement</a></label>
                             </div>
                             <!-- Own data agreement -->
-                            <div class="flex items-start" x-show="dataSource === 'track2'">
-                                <input id="own-data-usage" name="own-data-usge" type="checkbox"
-                                    :required="dataSource === 'track2'"
+                            <div class="flex items-start" x-show="track2">
+                                <input id="own-data-usage" name="own-data-usage" type="checkbox" :required="track2"
                                     class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
                                 <label for="own-data-usage" class="ml-2 text-sm text-gray-700">I confirm that I have the
                                     legal right to use my own data for this challenge and that it complies with all
