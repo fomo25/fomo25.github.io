@@ -50,17 +50,17 @@ permalink: /signup
 
                 <div class="mt-4 space-y-3">
                     <div class="flex items-center">
-                        <input id="data-source-ppmi" name="data-source" type="radio" value="ppmi" x-model="dataSource"
-                            class="h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="track-1" class="ml-2 text-sm text-gray-700"><strong>Track 1:
+                        <input id="data-source-track1" name="data-source" type="radio" value="track1"
+                            x-model="dataSource" class="h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="data-source-track1" class="ml-2 text-sm text-gray-700"><strong>Track 1:
                                 Methods</strong> I
                             want
                             to use the FOMO60K pretraining dataset.</label>
                     </div>
                     <div class="flex items-center">
-                        <input id="data-source-own" name="data-source" type="radio" value="own" x-model="dataSource"
-                            class="h-4 w-4 text-indigo-600 border-gray-300">
-                        <label for="track-2" class="ml-2 text-sm text-gray-700"><strong>Track 2: Any
+                        <input id="data-source-track2" name="data-source" type="radio" value="track2"
+                            x-model="dataSource" class="h-4 w-4 text-indigo-600 border-gray-300">
+                        <label for="data-source-track2" class="ml-2 text-sm text-gray-700"><strong>Track 2: Any
                             </strong>I want
                             to (also) use my own data.</label>
                     </div>
@@ -68,56 +68,6 @@ permalink: /signup
             </div>
         </div>
 
-        <!-- Step 3 (formerly 2): PPMI Registration - now conditional -->
-        <!-- Commenting out PPMI registration section
-        <div class="flex items-start space-x-4" x-show="dataSource === 'ppmi'">
-            <div class="flex-shrink-0">
-                <span
-                    class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-gray-400 text-white font-bold">3</span>
-            </div>
-            <div class="flex-1">
-                <h2 class="text-lg font-semibold">Register for the PPMI data and wait for acceptance (required for
-                    access to FOMO-54K.)</h2>
-                <p class="mt-4 text-md text-gray-700 mb-4">
-                    Go to the <a href="https://ida.loni.usc.edu/collaboration/access/appApply.jsp?project=PPMI"
-                        target="_blank" class="text-indigo-600 underline">the PPMI application form</a> and perform the
-                    following steps:
-                <ol class="list-decimal pl-6 text-sm text-gray-700 space-y-2">
-                    </p>
-                    <li>Sign the <a
-                            href="https://www.ppmi-info.org/sites/default/files/docs/ppmi-data-use-agreement.pdf"
-                            target="_blank" class="text-indigo-600 underline">PPMI Data Use Agreement</a>.</li>
-                    <li>Submit an Online Application. For the "proposed analysis", you can use the following: </br>
-
-                        <div class="bg-gray-100 p-4 rounded-md border border-gray-300 mt-4">
-                            <p class="text-sm text-gray-700">
-                                <strong>Proposed Analysis:</strong>
-                            </p>
-                            <pre
-                                class="bg-gray-200 p-2 rounded-md text-sm text-gray-800 overflow-auto whitespace-pre-wrap break-words">
-Research on the effect of using SSL on robustness and few-shot properties of deep-learning based models, with the aim of improving the diagnosis of brain-related diseases, including Parkinson.</pre>
-                            <p class="text-sm text-gray-500 mt-4">
-                                You are welcome to copy the above text and paste it into the "Proposed Analysis" field
-                                in the PPMI
-                                application form.
-                            </p>
-                        </div>
-                    </li>
-                    <li>Comply with the <a
-                            href="https://www.ppmi-info.org/sites/default/files/docs/ppmi-publication-policy.pdf"
-                            target="_blank" class="text-indigo-600 underline">Publication Policy</a></li>
-                    <li>Wait for acceptance to access the PPMI data. This typically takes 72 hours, but can take up to a
-                        week.</li>
-                    </li>
-                </ol>
-                <input id="confirm-terms" name="confirm-terms" type="checkbox" x-model="checkboxTerms"
-                    class="mt-8 h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                <label for="confirm-terms" class="ml-2 text-sm text-gray-700">
-                    I confirm that I have registered for <u>and been accepted to</u> access the PPMI data.
-                </label>
-            </div>
-        </div>
-        -->
     </div>
     <!-- Add checkboxes and next button -->
     <div class="mt-4 mb-12 space-y-3 pl-2">
@@ -143,11 +93,23 @@ Research on the effect of using SSL on robustness and few-shot properties of dee
         </div>
         <div class="flex-1">
             <h2 class="text-lg font-semibold">Fill out the following form</h2>
-            <form action="/submit-signup" method="POST" class="space-y-8 mt-8">
+            <form action="https://formsubmit.co/fomo25@di.ku.dk" method="POST" class="space-y-8 mt-8">
+                <!-- FormSubmit.co honeypot field to prevent spam -->
+                <input type="text" name="_honey" style="display:none">
+                <!-- Disable captcha -->
+                <input type="hidden" name="_captcha" value="false">
+                <!-- Subject line for emails -->
+                <input type="hidden" name="_subject" value="New FOMO 2025 Challenge Signup">
+                <!-- Auto-reply configuration -->
+                <input type="hidden" name="_autoresponse"
+                    value="Thank you for signing up for the FOMO Challenge! We will get back to you as soon as possible with instructions on how to access data.">
+
                 <!-- Data Source Selection Section - Hidden but still functional -->
                 <div class="hidden">
-                    <input id="form-data-source-ppmi" name="data-source" type="radio" value="ppmi" x-model="dataSource">
-                    <input id="form-data-source-own" name="data-source" type="radio" value="own" x-model="dataSource">
+                    <input id="form-data-source-ppmi" name="data-source" type="radio" value="track1"
+                        x-model="dataSource">
+                    <input id="form-data-source-own" name="data-source" type="radio" value="track2"
+                        x-model="dataSource">
                 </div>
 
                 <!-- Section: Synapse Information -->
@@ -167,40 +129,6 @@ Research on the effect of using SSL on robustness and few-shot properties of dee
                             class="mt-2 ml-8 h-250px rounded-md shadow-sm">
                     </div>
                 </div>
-
-                <!-- Section: PPMI Account Information - Now conditional -->
-                <!-- Commenting out PPMI account information section
-                <div class="border border-gray-200 rounded-md p-4 bg-gray-50" x-show="dataSource === 'ppmi'">
-                    <h3 class="text-md font-medium text-gray-800 mb-4 border-b pb-2">PPMI Account Information</h3>
-                    <p class="my-4 text-sm">
-                        Please provide the contact information on the Principal Investigator (PI) of your PPMI
-                        Application.
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex space-x-4">
-                            <div class="w-1/2">
-                                <label for="first-name" class="block text-sm font-medium text-gray-700">PPMI PI First
-                                    Name</label>
-                                <input type="text" id="first-name" name="ppmi-pi-first-name" required
-                                    class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                            </div>
-                            <div class="w-1/2">
-                                <label for="last-name" class="block text-sm font-medium text-gray-700">PPMI PI Last
-                                    Name</label>
-                                <input type="text" id="last-name" name="ppmi-pi-last-name" required
-                                    class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                            </div>
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">PPMI PI Email
-                                Address</label>
-                            <input type="email" id="email" name="email" required
-                                class="mt-1 block w-full border border-gray-700 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
-                        </div>
-                    </div>
-                </div>
-                -->
-
                 <!-- Section: Personal Information -->
                 <div class="border border-gray-200 rounded-md p-4 bg-gray-50">
                     <h3 class="text-md font-medium text-gray-800 mb-4 border-b pb-2">Personal Information</h3>
@@ -301,42 +229,23 @@ Research on the effect of using SSL on robustness and few-shot properties of dee
                     <fieldset>
                         <div class="mt-2 space-y-2">
                             <div class="flex items-start">
-                                <input id="citation-policy" name="terms" type="checkbox" required
+                                <input id="citation-policy" name="citation-policy" type="checkbox" required
                                     class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
                                 <label for="citation-policy" class="ml-2 text-sm text-gray-700">I agree that any usage
                                     of the provided data will adhere to the <a href="/citation-policy"
                                         class="text-indigo-600 underline"> Citation Policy</a></label>
                             </div>
                             <div class="flex items-start">
-                                <input id="data-usage" name="terms" type="checkbox" required
+                                <input id="data-usage" name="data-usage" type="checkbox" required
                                     class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
                                 <label for="data-usage" class="ml-2 text-sm text-gray-700">I agree to the <a href="/dua"
                                         target="_blank" class="text-indigo-600 underline">Data Usage
                                         Agreement</a></label>
                             </div>
-                            <!-- PPMI-specific agreements - commented out
-                            <div class="flex items-start" x-show="dataSource === 'ppmi'">
-                                <input id="ppmi-data-usage" name="terms" type="checkbox"
-                                    :required="dataSource === 'ppmi'"
-                                    class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                                <label for="ppmi-data-usage" class="ml-2 text-sm text-gray-700">I agree to the <a
-                                        href="https://www.ppmi-info.org/sites/default/files/docs/ppmi-data-use-agreement.pdf"
-                                        target="_blank" class="text-indigo-600 underline">PPMI Data Usage
-                                        Agreements</a></label>
-                            </div>
-                            <div class="flex items-start" x-show="dataSource === 'ppmi'">
-                                <input id="oasis-data-usage" name="terms" type="checkbox"
-                                    :required="dataSource === 'ppmi'"
-                                    class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
-                                <label for="oasis-data-usage" class="ml-2 text-sm text-gray-700">I agree to the
-                                    <a href="https://bpb-us-w2.wpmucdn.com/sites.wustl.edu/dist/6/4383/files/2024/05/Data-Use-Agreement_May2024.pdf"
-                                        target="_blank" class="text-indigo-600 underline">OASIS Data Usage
-                                        Agreements</a></label>
-                            </div>
-                            -->
                             <!-- Own data agreement -->
-                            <div class="flex items-start" x-show="dataSource === 'own'">
-                                <input id="own-data-usage" name="terms" type="checkbox" :required="dataSource === 'own'"
+                            <div class="flex items-start" x-show="dataSource === 'track2'">
+                                <input id="own-data-usage" name="own-data-usge" type="checkbox"
+                                    :required="dataSource === 'track2'"
                                     class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
                                 <label for="own-data-usage" class="ml-2 text-sm text-gray-700">I confirm that I have the
                                     legal right to use my own data for this challenge and that it complies with all
@@ -349,9 +258,9 @@ Research on the effect of using SSL on robustness and few-shot properties of dee
                 </div>
 
                 <div>
-                    <button type="submit" disabled
-                        class="w-full bg-gray-400 text-white py-2 px-4 rounded-md shadow cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
-                        Signup is not yet available
+                    <button type="submit"
+                        class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md shadow focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                        Submit Registration
                     </button>
                 </div>
             </form>
