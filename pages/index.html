@@ -187,39 +187,48 @@ permalink: /
     <div class="bg-white rounded-lg shadow-m p-12">
         <h2 class="text-3xl font-bold mb-6 text-gray-900 text-center">Abstract</h2>
         <p class="text-gray-700 text-lg mb-6">
-            Evidence from general computer vision suggests that large-scale self-supervised pre-training presents
-            vast yet underutilised possibilities in brain MRI analysis. Yet, the current method of choice for
-            deep-learning based analysis of brain MRI is still a fully-supervised paradigm. Due to a highly
-            effective data augmentation pipeline, the fully-supervised approach can be effective even with limited
-            labeled data. However out-of-domain robustness remains challenging, effectively limiting the models from
-            broad clinical deployment. The recent paradigm of training foundation models, by using self-supervised
-            pre-training on large-scale datasets, provides an avenue to remedy this, promising models which can be
-            few-shot adapted to novel tasks, while remaining robust to out-of-domain data.
+            Large-scale self-supervised pre-training presents vast yet underutilised possibilities in brain MRI
+            analysis. Yet, the current method of choice is still mostly based on a fully-supervised paradigm. Due to a
+            highly effective data augmentation pipeline, the fully-supervised approach can be effective even with
+            limited labeled data. However, robustness to domain shift and low-quality clinical data remains challenging,
+            effectively limiting the models from broad deployment. The recent paradigm shift of using foundation models,
+            trained via self-supervised pre-training on large-scale datasets, provides an avenue to remedy this,
+            promising models which can be few-shot adapted to novel tasks, while remaining robust to out-of-domain data.
         </p>
         <p class="text-gray-700 text-lg mb-6">
-            To spearhead the development of large self-supervised foundation models in the brain MRI domain, we
-            propose FOMO, the first challenge at MICCAI aiming to investigate foundation models for brain MRI. This
-            challenge is
+            To spearhead the development of large self-supervised foundation models in the brain MRI domain, we propose
+            FOMO, the first challenge at MICCAI aiming to investigate foundation models for brain MRI. This challenge is
             designed to drastically reduce the barrier for the MICCAI community to train foundation models. Further,
             this challenge seeks to investigate the few-shot generalisation properties of foundation models in the
             context of real-world brain MRI data by evaluating models on three large clinical, multi-vendor, and
             multi-center datasets.
         </p>
         <p class="text-gray-700 text-lg mb-6">
-            Since models are evaluated on multiple downstream tasks, this challenge seeks to investigate the effects
-            of different pre-training paradigms and configurations on downstream performance and ultimately both
-            identify the most promising methodologies and quantify the benefits of self-supervised pre-training.
-            In this challenge, participants will have access to the largest brain imaging dataset ever released,
-            assembled from
-            public sources, comprising of 51,779 MRI scans (from 11,161 cases) of which approximately a third are of
-            clinical quality. The pre-training dataset will not contain any segmentation maps or disease diagnosis
-            information which can be used for supervision. Participants will first pre-train a model on this
-            dataset, before fine-tuning models on three few-shot supervised tasks consisting of clinical MRIs
-            spanning image-level infarct detection, meningioma segmentation and brain age estimation. Evaluation
-            consists of large, diverse, multi-vendor, multi-center datasets consisting of 1200, 600 and 2000 MRI
-            scans (400, 200 and 1000 subjects) respectively. 20% of the data will be made available during a
-            pre-evaluation phase, which allows participants to gauge the performance of their models before final
-            submission.
+            Since models are evaluated on multiple downstream tasks, this challenge seeks to investigate the effects of
+            different pre-training paradigms and configurations on downstream performance and ultimately both identify
+            the most promising methodologies and quantify the benefits of self-supervised pre-training.
+        </p>
+        <p class="text-gray-700 text-lg mb-6">
+            In the <strong>methods</strong> track of this challenge, participants will have access to a large-scale
+            brain imaging
+            dataset, assembled from public sources, comprising of 60,551 MRI scans (from 13,225 subjects) of which
+            approximately a third are of clinical quality. The pre-training dataset will not contain any segmentation
+            maps or disease diagnosis information which can be used for supervision. Participants will first pre-train a
+            model on this dataset, before fine-tuning models on three few-shot supervised tasks consisting of clinical
+            MRIs spanning image-level infarct detection, meningioma segmentation and brain age estimation.
+        </p>
+        <p class="text-gray-700 text-lg mb-6">
+            In the <strong>open</strong> track, we do not pose any restrictions on the pretraining data used, including
+            the possibility
+            of leveraging private datasets. This part of the challenge presents an opportunity for labs to showcase
+            their foundation model and benchmark its performance, providing insights for the state of brain MRI
+            foundation model research for the broader research community.
+        </p>
+        <p class="text-gray-700 text-lg mb-6">
+            Both tracks are finally evaluated on three hidden, clinical, out-of-domain datasets, consisting of large,
+            diverse, multi-vendor, multi-center datasets spanning 1200, 600 and 2000 MRI scans (400, 200 and 1000
+            subjects) respectively. 20% of the data will be made available during a pre-evaluation phase, which allows
+            participants to gauge the performance of their models before final submission.
         </p>
     </div>
 </section>
