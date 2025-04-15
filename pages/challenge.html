@@ -197,7 +197,7 @@ permalink: /challenge
                     <div class="md:w-1/2 p-4">
                         <h3 class="text-lg font-bold text-gray-900 mb-2">Finetuning Data</h3>
                         <ul class="list-disc list-inside text-gray-700">
-                            <li><strong>Infarcts:</strong> 22 cases</li>
+                            <li><strong>Infarcts:</strong> 21 cases</li>
                             <li><strong>Meningiomas:</strong> 23 cases</li>
                             <li><strong>Brain Age:</strong> 200 cases</li>
                         </ul>
@@ -232,12 +232,13 @@ permalink: /challenge
     <h3 class="text-xl font-bold text-left mb-4 mt-12">Pretraining</h3>
     <p class=" text-gray-700 text-md mb-6">
         The provided pretraining data is a large-scale dataset of brain MRI scans, including both clinical and
-        research-grade scans. The dataset includes a wide range of sequences, including T1, MPRAGE, T2, T2*, Flair, SWI,
-        T1c, PD, DWI, ADC, and more. The dataset is split into 13,225 subjects, with a total of 16,727 sessions and
-        60,551 scans. All data is provided as NIfTY-files.
+        research-grade scans. The dataset includes a wide range of sequences, including T1, MPRAGE, T2, T2*, FLAIR, SWI,
+        T1c, PD, DWI, ADC, and more. The dataset is split into 11,167 subjects, with a total of 13,900 sessions and
+        60,529 scans. All data is provided as NiFTY-files.
     </p>
     <p class=" text-gray-700 text-md mb-6">
-        The dataset format is provided as one large standardized, preprocessed (including RAS reoriented, co-registered)
+        The dataset format is provided as one large standardized, preprocessed (including skull stripped, RAS
+        reoriented, co-registered)
         dataset and is collected from the following public sources: OASIS <a href="#citation-section"
             class="text-gray-600 font-semibold hover:underline">[1, 2]</a>, BraTS
         <a href="#citation-section" class="text-gray-600 font-semibold hover:underline">[3-7]</a>, MSD <a
@@ -261,6 +262,10 @@ permalink: /challenge
             Usage Agreement</a> and a <a href="/citation-policy"
             class="text-blue-600 font-medium hover:text-blue-800 underline hover:no-underline transition duration-300">Citation
             Policy.</a>
+    </p>
+    <p class=" text-gray-700 text-md mb-6">
+        FOMO-60K is available for download via <a href="https://huggingface.co/datasets/FOMO25/FOMO-MRI"
+            class="text-blue-600 font-medium hover:text-blue-800 underline hover:no-underline transition duration-300">Huggingface</a>.
     </p>
     <h3 class="text-xl font-bold text-left mb-4 mt-12">Finetuning</h3>
     <!-- Task 1 -->
@@ -291,7 +296,7 @@ permalink: /challenge
         </p>
         <p class="text-gray-700 text-md mb-2">
             <strong class="inline-block font-medium">Dataset sizes:</strong>
-            Finetune cases: 24. Validation cases: 80. Test cases: 320. <i>Each case represent different
+            Finetune cases: 21. Validation cases: 80. Test cases: 320. <i>Each case represent different
                 subjects.</i>
         </p>
         <p class="text-gray-700 text-md mb-8">
