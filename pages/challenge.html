@@ -158,15 +158,21 @@ permalink: /challenge
             </p>
         </div>
         <div class="mb-6">
-            <h3 class="text-lg font-bold text-gray-900">20 August</h3>
+            <h3 class="text-lg font-bold text-gray-900"><s>20 August</s> 31 August, 11.59 p.m. PST (Extended)</h3>
             <p class="text-gray-700">
                 Challenge submission deadline.
             </p>
         </div>
-        <div>
-            <h3 class="text-lg font-bold text-gray-900">MICCAI 2025</h3>
+        <div class="mb-6">
+            <h3 class="text-lg font-bold text-gray-900">2 September</h3>
             <p class="text-gray-700">
-                Results will be released during MICCAI 2025 (half day, 27 September).
+                Participant invited for presentation will be contacted.
+            </p>
+        </div>
+        <div>
+            <h3 class="text-lg font-bold text-gray-900">27 September</h3>
+            <p class="text-gray-700">
+                Half-day event at MICCAI 2025.
             </p>
         </div>
     </div>
@@ -228,7 +234,8 @@ permalink: /challenge
                 <span
                     class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded whitespace-nowrap w-max inline-block overflow-hidden text-ellipsis">Clinical-quality</span>
                 <p class="text-gray-600 italic mt-4">
-                    <strong>Note:</strong> 20% of the evaluation data will be used for pre-evaluation and a pre-deadline
+                    <strong>Note:</strong> 20% of the evaluation data will be used for pre-evaluation and a
+                    pre-deadline
                     leaderboard.
                 </p>
             </div>
@@ -237,7 +244,8 @@ permalink: /challenge
     <h3 class="text-xl font-bold text-left mb-4 mt-12">Pretraining</h3>
     <p class=" text-gray-700 text-md mb-6">
         The provided pretraining data is a large-scale dataset of brain MRI scans, including both clinical and
-        research-grade scans. The dataset includes a wide range of sequences, including T1, MPRAGE, T2, T2*, FLAIR, SWI,
+        research-grade scans. The dataset includes a wide range of sequences, including T1, MPRAGE, T2, T2*, FLAIR,
+        SWI,
         T1c, PD, DWI, ADC, and more. The dataset is split into 11,167 subjects, with a total of 13,900 sessions and
         60,529 scans. All data is provided as NiFTY-files.
     </p>
@@ -301,7 +309,8 @@ permalink: /challenge
         <p class="text-gray-700 text-md mb-2">
             <strong class="inline-block font-medium">Available additional information:</strong>
             A binary mask of the infarcts is provided for the finetuning data. This mask is not provided for the
-            evaluation data. <i>Note that the masks have not been verified by expert radiologists and are meant to serve
+            evaluation data. <i>Note that the masks have not been verified by expert radiologists and are meant to
+                serve
                 as approximate annotations only.</i>
         </p>
         <p class="text-gray-700 text-md mb-2">
@@ -388,7 +397,8 @@ permalink: /challenge
         Participants are provided with a baseline framework to carry out both pretraining and
         finetuning, enabling participants to concentrate on specific components of the workflow.
         The provided code is designed to be a starting point, and not required for participation.
-        The baseline framework includes scripts for data preprocessing, model training, and evaluation. It is designed
+        The baseline framework includes scripts for data preprocessing, model training, and evaluation. It is
+        designed
         to be modular and extensible, allowing participants to easily integrate their own methods. Detailed
         documentation and examples are provided in the repository to help participants get started quickly.
 
@@ -418,18 +428,22 @@ permalink: /challenge
         For all tasks, the challenge will have two tracks:
     <ol class="list-decimal list-inside text-gray-700 mx-4 space-y-4 mb-8">
         <li>
-            <span class="font-bold">Methods Track: No additional data allowed.</span> Challenge participants can only
+            <span class="font-bold">Methods Track: No additional data allowed.</span> Challenge participants can
+            only
             use
             the
-            large-scale FOMO60K dataset. This challenge track is intended to provide insights into methods development
+            large-scale FOMO60K dataset. This challenge track is intended to provide insights into methods
+            development
             for pretraining, finetuning and model architectures.
         </li>
         <li>
-            <span class="font-bold">Open Track: Any data allowed for pretraining.</span> Challenge participants can use
+            <span class="font-bold">Open Track: Any data allowed for pretraining.</span> Challenge participants can
+            use
             any data,
             including private data, for their submissions. This track includes submissions using any form of
             segmentation maps obtained through manual labor or disease diagnosis information during pretraining. All
-            data used must be specified and properly cited. The track is intended to allow participants to showcase and
+            data used must be specified and properly cited. The track is intended to allow participants to showcase
+            and
             compare brain MRI Foundation Models.
         </li>
     </ol>
@@ -455,7 +469,8 @@ permalink: /challenge
     <p class=" text-gray-700 text-md mb-6">
         For each pretraining configuration, the same pretrained checkpoint can be finetuned to each of the three
         tasks. Per pretraining checkpoint, an overall rank is then calculated as the average rank of each task. For
-        partial submissions, that is submissions that have only submitted models for a subset of the three tasks, the
+        partial submissions, that is submissions that have only submitted models for a subset of the three tasks,
+        the
         worst possible rank is used in the average (defined as number of valid submissions per task plus one.)</p>
 
     <hr class="my-12 border-t-2 border-gray-300">
@@ -468,7 +483,8 @@ permalink: /challenge
         All participating teams that have made substantial submissions (e.g. excludes trivial approaches such as
         setting
         all outputs to zero, random guessing, or simply using provided baselines) of a pretrained model to all
-        three tasks will be invited to contribute to the manuscript of the following publication. Each team can have at
+        three tasks will be invited to contribute to the manuscript of the following publication. Each team can have
+        at
         most five authors on the publication. We will consider exemptions on a case-by-case basis.
     </p>
     <hr class="my-12 border-t-2 border-gray-300">
@@ -514,8 +530,10 @@ permalink: /challenge
         <p class="text-gray-700 text-md mb-5">
             <span class="text-gray-600 font-semibold">[1]</span>
             Open Access Series of Imaging Studies (OASIS):
-            Cross-Sectional MRI Data in Young, Middle Aged, Nondemented, and Demented Older Adults. Marcus, DS, Wang,
-            TH, Parker, J, Csernansky, JG, Morris, JC, Buckner, RL. Journal of Cognitive Neuroscience, 19, 1498-1507.
+            Cross-Sectional MRI Data in Young, Middle Aged, Nondemented, and Demented Older Adults. Marcus, DS,
+            Wang,
+            TH, Parker, J, Csernansky, JG, Morris, JC, Buckner, RL. Journal of Cognitive Neuroscience, 19,
+            1498-1507.
         </p>
         <p class="text-gray-700 text-md mb-5">
             <span class="text-gray-600 font-semibold">[2]</span>
@@ -527,55 +545,84 @@ permalink: /challenge
         <p class="text-gray-700 text-md mb-5">
             <span class="text-gray-600 font-semibold">[3]</span>
             LaBella D, Adewole M, Alonso-Basanta M, Altes T, Anwar
-            SM, Baid U, Bergquist T, Bhalerao R, Chen S, Chung V, Conte GM, Dako F, Eddy J, Ezhov I, Godfrey D, Hilal F,
+            SM, Baid U, Bergquist T, Bhalerao R, Chen S, Chung V, Conte GM, Dako F, Eddy J, Ezhov I, Godfrey D,
+            Hilal F,
             Familiar A, Farahani K, Iglesias JE, Jiang Z, Johanson E, Kazerooni AF, Kent C, Kirkpatrick J, Kofler F,
-            Leemput KV, Li HB, Liu X, Mahtabfar A, McBurney-Lin S, McLean R, Meier Z, Moawad AW, Mongan J, Nedelec P,
+            Leemput KV, Li HB, Liu X, Mahtabfar A, McBurney-Lin S, McLean R, Meier Z, Moawad AW, Mongan J, Nedelec
+            P,
             Pajot M, Piraud M, Rashid A, Reitman Z, Shinohara RT, Velichko Y, Wang C, Warman P, Wiggins W, Aboian M,
-            Albrecht J, Anazodo U, Bakas S, Flanders A, Janas A, Khanna G, Linguraru MG, Menze B, Nada A, Rauschecker
-            AM, Rudie J, Tahon NH, Villanueva-Meyer J, Wiestler B, Calabrese E. The ASNR-MICCAI Brain Tumor Segmentation
+            Albrecht J, Anazodo U, Bakas S, Flanders A, Janas A, Khanna G, Linguraru MG, Menze B, Nada A,
+            Rauschecker
+            AM, Rudie J, Tahon NH, Villanueva-Meyer J, Wiestler B, Calabrese E. The ASNR-MICCAI Brain Tumor
+            Segmentation
             (BraTS) Challenge 2023: Intracranial Meningioma. ArXiv [Preprint]. 2023 May 12:arXiv:2305.07642v1. PMID:
             37608937; PMCID: PMC10441446.
         </p>
         <p class="text-gray-700 text-md mb-5">
             <span class="text-gray-600 font-semibold">[4]</span>
             Moawad AW, Janas A, Baid U, Ramakrishnan D, Saluja R,
-            Ashraf N, Maleki N, Jekel L, Yordanov N, Fehringer P, Gkampenis A, Amiruddin R, Manteghinejad A, Adewole M,
-            Albrecht J, Anazodo U, Aneja S, Anwar SM, Bergquist T, Chiang V, Chung V, Conte GM, Dako F, Eddy J, Ezhov I,
-            Khalili N, Farahani K, Iglesias JE, Jiang Z, Johanson E, Kazerooni AF, Kofler F, Krantchev K, LaBella D, Van
-            Leemput K, Li HB, Linguraru MG, Liu X, Meier Z, Menze BH, Moy H, Osenberg K, Piraud M, Reitman Z, Shinohara
-            RT, Wang C, Wiestler B, Wiggins W, Shafique U, Willms K, Avesta A, Bousabarah K, Chakrabarty S, Gennaro N,
-            Holler W, Kaur M, LaMontagne P, Lin M, Lost J, Marcus DS, Maresca R, Merkaj S, Cassinelli Pedersen G, von
-            Reppert M, Sotiras A, Teytelboym O, Tillmans N, Westerhoff M, Youssef A, Godfrey D, Floyd S, Rauschecker A,
-            Villanueva-Meyer J, Pflüger I, Cho J, Bendszus M, Brugnara G, Cramer J, Perez-Carillo GJG, Johnson DR, Kam
-            A, Kwan BYM, Lai L, Lall NU, Memon F, Krycia M, Patro SN, Petrovic B, So TY, Thompson G, Wu L, Schrickel EB,
+            Ashraf N, Maleki N, Jekel L, Yordanov N, Fehringer P, Gkampenis A, Amiruddin R, Manteghinejad A, Adewole
+            M,
+            Albrecht J, Anazodo U, Aneja S, Anwar SM, Bergquist T, Chiang V, Chung V, Conte GM, Dako F, Eddy J,
+            Ezhov I,
+            Khalili N, Farahani K, Iglesias JE, Jiang Z, Johanson E, Kazerooni AF, Kofler F, Krantchev K, LaBella D,
+            Van
+            Leemput K, Li HB, Linguraru MG, Liu X, Meier Z, Menze BH, Moy H, Osenberg K, Piraud M, Reitman Z,
+            Shinohara
+            RT, Wang C, Wiestler B, Wiggins W, Shafique U, Willms K, Avesta A, Bousabarah K, Chakrabarty S, Gennaro
+            N,
+            Holler W, Kaur M, LaMontagne P, Lin M, Lost J, Marcus DS, Maresca R, Merkaj S, Cassinelli Pedersen G,
+            von
+            Reppert M, Sotiras A, Teytelboym O, Tillmans N, Westerhoff M, Youssef A, Godfrey D, Floyd S, Rauschecker
+            A,
+            Villanueva-Meyer J, Pflüger I, Cho J, Bendszus M, Brugnara G, Cramer J, Perez-Carillo GJG, Johnson DR,
+            Kam
+            A, Kwan BYM, Lai L, Lall NU, Memon F, Krycia M, Patro SN, Petrovic B, So TY, Thompson G, Wu L, Schrickel
+            EB,
             Bansal A, Barkhof F, Besada C, Chu S, Druzgal J, Dusoi A, Farage L, Feltrin F, Fong A, Fung SH, Gray RI,
             Ikuta I, Iv M, Postma AA, Mahajan A, Joyner D, Krumpelman C, Letourneau-Guillon L, Lincoln CM, Maros ME,
-            Miller E, Morón FEA, Nimchinsky EA, Ozsarlak O, Patel U, Rohatgi S, Saha A, Sayah A, Schwartz ED, Shih R,
+            Miller E, Morón FEA, Nimchinsky EA, Ozsarlak O, Patel U, Rohatgi S, Saha A, Sayah A, Schwartz ED, Shih
+            R,
             Shiroishi MS, Small JE, Tanwar M, Valerie J, Weinberg BD, White ML, Young R, Zohrabian VM, Azizova A,
-            Brüßeler MMT, Ghonim M, Ghonim M, Okar A, Pasquini L, Sharifi Y, Singh G, Sollmann N, Soumala T, Taherzadeh
+            Brüßeler MMT, Ghonim M, Ghonim M, Okar A, Pasquini L, Sharifi Y, Singh G, Sollmann N, Soumala T,
+            Taherzadeh
             M, Vollmuth P, Foltyn-Dumitru M, Malhotra A, Abayazeed AH, Dellepiane F, Lohmann P, Pérez-García VM,
-            Elhalawani H, de Verdier MC, Al-Rubaiey S, Armindo RD, Ashraf K, Asla MM, Badawy M, Bisschop J, Lomer NB,
+            Elhalawani H, de Verdier MC, Al-Rubaiey S, Armindo RD, Ashraf K, Asla MM, Badawy M, Bisschop J, Lomer
+            NB,
             Bukatz J, Chen J, Cimflova P, Corr F, Crawley A, Deptula L, Elakhdar T, Shawali IH, Faghani S, Frick A,
-            Gulati V, Haider MA, Hierro F, Dahl RH, Jacobs SM, Hsieh KJ, Kandemirli SG, Kersting K, Kida L, Kollia S,
-            Koukoulithras I, Li X, Abouelatta A, Mansour A, Maria-Zamfirescu RC, Marsiglia M, Mateo-Camacho YS, McArthur
-            M, McDonnell O, McHugh M, Moassefi M, Morsi SM, Munteanu A, Nandolia KK, Naqvi SR, Nikanpour Y, Alnoury M,
-            Nouh AMA, Pappafava F, Patel MD, Petrucci S, Rawie E, Raymond S, Roohani B, Sabouhi S, Sanchez-Garcia LM,
+            Gulati V, Haider MA, Hierro F, Dahl RH, Jacobs SM, Hsieh KJ, Kandemirli SG, Kersting K, Kida L, Kollia
+            S,
+            Koukoulithras I, Li X, Abouelatta A, Mansour A, Maria-Zamfirescu RC, Marsiglia M, Mateo-Camacho YS,
+            McArthur
+            M, McDonnell O, McHugh M, Moassefi M, Morsi SM, Munteanu A, Nandolia KK, Naqvi SR, Nikanpour Y, Alnoury
+            M,
+            Nouh AMA, Pappafava F, Patel MD, Petrucci S, Rawie E, Raymond S, Roohani B, Sabouhi S, Sanchez-Garcia
+            LM,
             Shaked Z, Suthar PP, Altes T, Isufi E, Dhemesh Y, Gass J, Thacker J, Tarabishy AR, Turner B, Vacca S,
-            Vilanilam GK, Warren D, Weiss D, Worede F, Yousry S, Lerebo W, Aristizabal A, Karargyris A, Kassem H, Pati
-            S, Sheller M, Link KEE, Calabrese E, Tahon NH, Nada A, Velichko YS, Bakas S, Rudie JD, Aboian M. The Brain
-            Tumor Segmentation - Metastases (BraTS-METS) Challenge 2023: Brain Metastasis Segmentation on Pre-treatment
+            Vilanilam GK, Warren D, Weiss D, Worede F, Yousry S, Lerebo W, Aristizabal A, Karargyris A, Kassem H,
+            Pati
+            S, Sheller M, Link KEE, Calabrese E, Tahon NH, Nada A, Velichko YS, Bakas S, Rudie JD, Aboian M. The
+            Brain
+            Tumor Segmentation - Metastases (BraTS-METS) Challenge 2023: Brain Metastasis Segmentation on
+            Pre-treatment
             MRI. ArXiv [Preprint]. 2024 Dec 9:arXiv:2306.00838v3. PMID: 37396600; PMCID: PMC10312806.
         </p>
         <p class="text-gray-700 text-md mb-5">
             <span class="text-gray-600 font-semibold">[5]</span>
-            Kazerooni AF, Khalili N, Liu X, Haldar D, Jiang Z, Anwar SM, Albrecht J, Adewole M, Anazodo U, Anderson H,
-            Bagheri S, Baid U, Bergquist T, Borja AJ, Calabrese E, Chung V, Conte GM, Dako F, Eddy J, Ezhov I, Familiar
+            Kazerooni AF, Khalili N, Liu X, Haldar D, Jiang Z, Anwar SM, Albrecht J, Adewole M, Anazodo U, Anderson
+            H,
+            Bagheri S, Baid U, Bergquist T, Borja AJ, Calabrese E, Chung V, Conte GM, Dako F, Eddy J, Ezhov I,
+            Familiar
             A, Farahani K, Haldar S, Iglesias JE, Janas A, Johansen E, Jones BV, Kofler F, LaBella D, Lai HA, Van
-            Leemput K, Li HB, Maleki N, McAllister AS, Meier Z, Menze B, Moawad AW, Nandolia KK, Pavaine J, Piraud M,
-            Poussaint T, Prabhu SP, Reitman Z, Rodriguez A, Rudie JD, Shaikh IS, Shah LM, Sheth N, Shinohara RT, Tu W,
-            Viswanathan K, Wang C, Ware JB, Wiestler B, Wiggins W, Zapaishchykova A, Aboian M, Bornhorst M, de Blank P,
+            Leemput K, Li HB, Maleki N, McAllister AS, Meier Z, Menze B, Moawad AW, Nandolia KK, Pavaine J, Piraud
+            M,
+            Poussaint T, Prabhu SP, Reitman Z, Rodriguez A, Rudie JD, Shaikh IS, Shah LM, Sheth N, Shinohara RT, Tu
+            W,
+            Viswanathan K, Wang C, Ware JB, Wiestler B, Wiggins W, Zapaishchykova A, Aboian M, Bornhorst M, de Blank
+            P,
             Deutsch M, Fouladi M, Hoffman L, Kann B, Lazow M, Mikael L, Nabavizadeh A, Packer R, Resnick A, Rood B,
-            Vossough A, Bakas S, Linguraru MG. The Brain Tumor Segmentation (BraTS) Challenge 2023: Focus on Pediatrics
+            Vossough A, Bakas S, Linguraru MG. The Brain Tumor Segmentation (BraTS) Challenge 2023: Focus on
+            Pediatrics
             (CBTN-CONNECT-DIPGR-ASNR-MICCAI BraTS-PEDs). ArXiv [Preprint]. 2024 May 23:arXiv:2305.17033v7. PMID:
             37292481; PMCID: PMC10246083.
         </p>
@@ -583,19 +630,26 @@ permalink: /challenge
             <span class="text-gray-600 font-semibold">[6]</span>
             Correia de Verdier, Maria & Saluja, Rachit & Gagnon, Louis & LaBella, Dominic & Baid, Ujjwall & Tahon,
             Nourel Hoda & Foltyn-Dumitru, Martha & Zhang, Jikai & Alafif, Maram & Baig, Saif & Chang, Ken & D'Anna,
-            Gennaro & Deptula, Lisa & Gupta, Diviya & Haider, Muhammad Ammar & Hussain, Ali & Iv, Michael & Kontzialis,
+            Gennaro & Deptula, Lisa & Gupta, Diviya & Haider, Muhammad Ammar & Hussain, Ali & Iv, Michael &
+            Kontzialis,
             Marinos & Manning, Paul & Rudie, Jeffrey. (2024). The 2024 Brain Tumor Segmentation (BraTS) challenge:
             glioma segmentation on post-treatment MRI. 10.48550/arXiv.2405.18368.
         </p>
         <p class="text-gray-700 text-md mb-5">
             <span class="text-gray-600 font-semibold">[7]</span>
-            Adewole M, Rudie JD, Gbdamosi A, Toyobo O, Raymond C, Zhang D, Omidiji O, Akinola R, Suwaid MA, Emegoakor A,
+            Adewole M, Rudie JD, Gbdamosi A, Toyobo O, Raymond C, Zhang D, Omidiji O, Akinola R, Suwaid MA,
+            Emegoakor A,
             Ojo N, Aguh K, Kalaiwo C, Babatunde G, Ogunleye A, Gbadamosi Y, Iorpagher K, Calabrese E, Aboian M,
-            Linguraru M, Albrecht J, Wiestler B, Kofler F, Janas A, LaBella D, Kzerooni AF, Li HB, Iglesias JE, Farahani
-            K, Eddy J, Bergquist T, Chung V, Shinohara RT, Wiggins W, Reitman Z, Wang C, Liu X, Jiang Z, Familiar A, Van
-            Leemput K, Bukas C, Piraud M, Conte GM, Johansson E, Meier Z, Menze BH, Baid U, Bakas S, Dako F, Fatade A,
-            Anazodo UC. The Brain Tumor Segmentation (BraTS) Challenge 2023: Glioma Segmentation in Sub-Saharan Africa
-            Patient Population (BraTS-Africa). ArXiv [Preprint]. 2023 May 30:arXiv:2305.19369v1. PMID: 37396608; PMCID:
+            Linguraru M, Albrecht J, Wiestler B, Kofler F, Janas A, LaBella D, Kzerooni AF, Li HB, Iglesias JE,
+            Farahani
+            K, Eddy J, Bergquist T, Chung V, Shinohara RT, Wiggins W, Reitman Z, Wang C, Liu X, Jiang Z, Familiar A,
+            Van
+            Leemput K, Bukas C, Piraud M, Conte GM, Johansson E, Meier Z, Menze BH, Baid U, Bakas S, Dako F, Fatade
+            A,
+            Anazodo UC. The Brain Tumor Segmentation (BraTS) Challenge 2023: Glioma Segmentation in Sub-Saharan
+            Africa
+            Patient Population (BraTS-Africa). ArXiv [Preprint]. 2023 May 30:arXiv:2305.19369v1. PMID: 37396608;
+            PMCID:
             PMC10312814.
         </p>
 
@@ -605,16 +659,19 @@ permalink: /challenge
             Farahani, K., Ginneken, B., Kopp-Schneider, A.,
             Landman,
             B., Litjens, G., Menze, B., Ronneberger, O., Sum- mers, R., Bilic, P., Christ, P., Do, R., Gollub, M.,
-            Golia-Pernicka, J., Heckers, S.,Jarnagin, W., Cardoso, M.J.: A large annotated medical image dataset for the
+            Golia-Pernicka, J., Heckers, S.,Jarnagin, W., Cardoso, M.J.: A large annotated medical image dataset for
+            the
             development and evaluation of segmentation algorithms (02 2019).
         </p>
         <p class="text-gray-700 text-md mb-5">
             <span class="text-gray-600 font-semibold">[9]</span> http://brain-development.org/ixi-dataset/
         </p>
         <p class="text-gray-700 text-md mb-5">
-            <span class="text-gray-600 font-semibold">[10]</span> Juan E. Iglesias et al. ,SynthSR: A public AI tool to
+            <span class="text-gray-600 font-semibold">[10]</span> Juan E. Iglesias et al. ,SynthSR: A public AI tool
+            to
             turn heterogeneous clinical brain scans into
-            high-resolution T1-weighted images for 3D morphometry.Sci. Adv.9,eadd3607(2023).DOI:10.1126/sciadv.add3607.
+            high-resolution T1-weighted images for 3D morphometry.Sci.
+            Adv.9,eadd3607(2023).DOI:10.1126/sciadv.add3607.
         </p>
         <p class="text-gray-700 text-md mb-5">
             <span class="text-gray-600 font-semibold">[11]</span>
@@ -630,24 +687,31 @@ permalink: /challenge
         <p class="text-gray-700 text-md mb-5">
             <span class="text-gray-600 font-semibold">[13]</span> A
             llison C. Nugent and Adam G Thomas and Margaret
-            Mahoney and Alison Gibbons and Jarrod Smith and Antoinette Charles and Jacob S Shaw and Jeffrey D Stout and
-            Anna M Namyst and Arshitha Basavaraj and Eric Earl and Dustin Moraczewski and Emily Guinee and Michael Liu
+            Mahoney and Alison Gibbons and Jarrod Smith and Antoinette Charles and Jacob S Shaw and Jeffrey D Stout
+            and
+            Anna M Namyst and Arshitha Basavaraj and Eric Earl and Dustin Moraczewski and Emily Guinee and Michael
+            Liu
             and Travis Riddle and Joseph Snow and Shruti Japee and Morgan Andrews and Adriana Pavletic and Stephen
-            Sinclair and Vinai Roopchansingh and Peter A Bandettini and Joyce Chung (2025). The NIMH Healthy Research
+            Sinclair and Vinai Roopchansingh and Peter A Bandettini and Joyce Chung (2025). The NIMH Healthy
+            Research
             Volunteer Dataset. OpenNeuro. [Dataset] doi: doi:10.18112/openneuro.ds005752.v2.1.0
         </p>
         <p class="text-gray-700 text-md mb-5">
             <span class="text-gray-600 font-semibold">[14]</span>
             Denise Park and Joseph Hennessee and Evan T. Smith and Micaela Chan and Carson Katen and Julia Bacci and
-            Sarah Frank and Sarah Monier and Alexandra Collyer and Carol Tamminga and William Moore and Neil Rofsky and
+            Sarah Frank and Sarah Monier and Alexandra Collyer and Carol Tamminga and William Moore and Neil Rofsky
+            and
             Karen Rodrigue and Kristen Kennedy and Gagan Wig (2024). The Dallas Lifespan Brain Study. OpenNeuro.
             [Dataset] doi: doi:10.18112/openneuro.ds004856.v1.2.0
         </p>
         <p class="text-gray-700 text-md mb-5">
             <span class="text-gray-600 font-semibold">[15]</span>
-            Peter N. Taylor and Yujiang Wang and Callum Simpson and Vytene Janiukstyte and Jonathan Horsley and Karoline
-            Leiberg and Beth Little and Harry Clifford and Sophie Adler and Sjoerd B. Vos and Gavin P Winston and Andrew
-            W McEvoy and Anna Miserocchi and Jane de Tisi and John S Duncan (2024). The Imaging Database for Epilepsy
+            Peter N. Taylor and Yujiang Wang and Callum Simpson and Vytene Janiukstyte and Jonathan Horsley and
+            Karoline
+            Leiberg and Beth Little and Harry Clifford and Sophie Adler and Sjoerd B. Vos and Gavin P Winston and
+            Andrew
+            W McEvoy and Anna Miserocchi and Jane de Tisi and John S Duncan (2024). The Imaging Database for
+            Epilepsy
             And Surgery (IDEAS). OpenNeuro. [Dataset] doi: doi:10.18112/openneuro.ds005602.v1.0.0
         </p>
         <p class="text-gray-700 text-md mb-5">
@@ -659,7 +723,8 @@ permalink: /challenge
         </p>
         <p class="text-gray-700 text-md mb-5">
             <span class="text-gray-600 font-semibold">[17]</span>
-            David Seminowicz and Shana Burrowes and Alexandra Kearson and Jing Zhang and Samuel Krimmel and Luma Samawi
+            David Seminowicz and Shana Burrowes and Alexandra Kearson and Jing Zhang and Samuel Krimmel and Luma
+            Samawi
             and Andrew Furman and Michael Keaser (2024). MBSR. OpenNeuro. [Dataset] doi:
             doi:10.18112/openneuro.ds005016.v1.1.1
         </p>
@@ -670,13 +735,15 @@ permalink: /challenge
         </p>
         <p class="text-gray-700 text-md mb-5">
             <span class="text-gray-600 font-semibold">[19]</span>
-            Strike, Lachlan T. and Hansell, Narelle K. and Miller, Jessica L. and Chuang, Kai-Hsiang and Thompson, Paul
+            Strike, Lachlan T. and Hansell, Narelle K. and Miller, Jessica L. and Chuang, Kai-Hsiang and Thompson,
+            Paul
             M. and de Zubicaray, Greig I. and McMahon, Katie L. and Wright, Margaret J. (2022). Queensland Twin
             Adolescent Brain (QTAB). OpenNeuro. [Dataset] doi: doi:10.18112/openneuro.ds004146.v1.0.4
         </p>
         <p class="text-gray-700 text-md mb-5">
             <span class="text-gray-600 font-semibold">[20]</span>
-            Lukas Snoek and Maite van der Miesen and Andries van der Leij and Tinka Beemsterboer and Annemarie Eigenhuis
+            Lukas Snoek and Maite van der Miesen and Andries van der Leij and Tinka Beemsterboer and Annemarie
+            Eigenhuis
             and Steven Scholte (2021). AOMIC-ID1000. OpenNeuro. [Dataset] doi: 10.18112/openneuro.ds003097.v1.2.1
         </p>
         <p class="text-gray-700 text-md mb-5">
