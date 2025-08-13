@@ -70,7 +70,8 @@ permalink: /faq
             at least 1.5TB of storage. Given access to one H100 GPU, pretraining using the provided code takes
             approximately 48 hours depending on your I/O performance. Finetuning takes approximately 10 hours. Further,
             the codebase is setup such that it is easy to extend to multiple GPUs and multiple nodes using DDP,
-            where we have seen linear scaling up to 8 GPUs even on multiple nodes.
+            where we have seen linear scaling up to 8 GPUs even on multiple nodes. The submission is subject to a
+            runtime limit of 120 seconds per case on a compute node with an 80GB VRAM H100 GPU and 32 CPUs.
         </p>
     </div>
     <div x-data="{ open: false }" class="border-b border-gray-200 pb-8">
