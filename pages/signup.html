@@ -11,6 +11,11 @@ permalink: /signup
     <!-- Page Title -->
     <h1 class="text-2xl font-bold text-center mb-8">Signup for FOMO 2025 Challenge</h1>
 
+    <div role="alert" class="mb-8 rounded-md border border-blue-200 bg-blue-50 p-4 text-blue-800">
+        <p class="font-semibold">The FOMO 2025 Challenge has concluded.</p>
+        <p class="text-sm">Signup is no longer possible.</p>
+    </div>
+
     <!-- Updated instruction element above the form -->
     <div class="mb-2 space-y-12">
         <div class="flex items-start space-x-4">
@@ -258,9 +263,9 @@ permalink: /signup
                 </div>
 
                 <div>
-                    <button type="submit"
-                        class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md shadow focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                        Submit Registration
+                    <button type="submit" disabled
+                        class="w-full bg-gray-400 text-white py-2 px-4 rounded-md shadow cursor-not-allowed opacity-60">
+                        Signup has closed
                     </button>
                 </div>
             </form>
