@@ -1,0 +1,511 @@
+---
+layout: default
+title: Results - FOMO 2025 - Foundation Model Challenge for Brain MRI
+permalink: /results
+---
+
+<!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+<link rel="stylesheet" type="text/css"
+    href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css">
+
+<!-- jQuery and DataTables JS -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
+
+<style>
+    /* Minimal styling */
+    .rank-1 {
+        background-color: #f0f9ff !important;
+        border-left: 3px solid #3b82f6;
+        font-weight: 600;
+    }
+
+    .rank-2 {
+        background-color: #f8fafc !important;
+        border-left: 3px solid #64748b;
+        font-weight: 500;
+    }
+
+    .rank-3 {
+        background-color: #fefbf3 !important;
+        border-left: 3px solid #d97706;
+        font-weight: 500;
+    }
+
+    table.dataTable {
+        border: 1px solid #dee2e6;
+        font-size: 0.875rem;
+        margin: 0 auto;
+        display: table;
+    }
+
+    table.dataTable thead th {
+        background-color: #ffffff !important;
+        color: #495057 !important;
+        border-bottom: 1px solid #dee2e6 !important;
+        border-right: 1px solid #dee2e6 !important;
+        font-weight: 600;
+        font-size: 0.875rem;
+        padding: 0.75rem 0.5rem;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    table.dataTable thead th:first-child,
+    table.dataTable thead th:nth-child(2),
+    table.dataTable thead th:nth-child(3) {
+        text-align: left;
+    }
+
+    table.dataTable thead tr:first-child th {
+        border-bottom: 1px solid #dee2e6 !important;
+    }
+
+    table.dataTable thead tr:last-child th {
+        border-bottom: 2px solid #dee2e6 !important;
+    }
+
+    table.dataTable tbody td {
+        font-size: 0.875rem;
+        padding: 0.5rem;
+        border-bottom: 1px solid #dee2e6;
+        color: #495057;
+    }
+
+    .dataTables_wrapper .dataTables_length,
+    .dataTables_wrapper .dataTables_filter,
+    .dataTables_wrapper .dataTables_info,
+    .dataTables_wrapper .dataTables_paginate {
+        color: #495057;
+        font-size: 0.875rem;
+    }
+
+    .dataTables_wrapper .dataTables_length select,
+    .dataTables_wrapper .dataTables_filter input {
+        background-color: white;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        border: 1px solid #dee2e6;
+        color: #495057;
+        background: white;
+        padding: 0.25rem 0.5rem;
+        margin: 0 1px;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+        background: #495057 !important;
+        border: 1px solid #495057 !important;
+        color: white !important;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        background: #f8f9fa !important;
+        border: 1px solid #495057 !important;
+        color: #495057 !important;
+    }
+
+    .baseline-row {
+        background-color: #f8f9fa;
+        color: #6c757d;
+        font-style: italic;
+    }
+</style>
+
+<div class="bg-white text-gray-900 max-w-6xl mx-auto px-8 py-16 my-8 rounded-lg shadow-md">
+    <h1 class="text-3xl font-extrabold text-gray-900 mb-8">Results</h1>
+    <p class="mb-6 text-gray-700">We are excited to present the results of the FOMO 2025 Challenge. Below you will find
+        detailed rankings and performance metrics for each participating team across all three tasks in both tracks:
+        Track 1 (Method) and Track 2 (Open).</p>
+    <!-- Track 1: Method Results -->
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Track 1: Method</h2>
+    <div class="overflow-x-auto text-center">
+        <table id="resultsTable" class="w-100">
+            <thead>
+                <tr>
+                    <th rowspan="2">Rank</th>
+                    <th rowspan="2">Team</th>
+                    <th rowspan="2">Overall Rank</th>
+                    <th colspan="2">Task 1: Infarct Detection</th>
+                    <th colspan="3">Task 2: Meningioma Segmentation</th>
+                    <th colspan="3">Task 3: Brain Age Estimation</th>
+                </tr>
+                <tr>
+                    <th>Rank</th>
+                    <th>AUCROC</th>
+                    <th>Rank</th>
+                    <th>Dice</th>
+                    <th>NSD</th>
+                    <th>Rank</th>
+                    <th>Correlation</th>
+                    <th>MAE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="rank-1">
+                    <td>1</td>
+                    <td>FOMO2JOMO</td>
+                    <td>2.7</td>
+                    <td>2</td>
+                    <td>0.782</td>
+                    <td>5</td>
+                    <td>0.095</td>
+                    <td>0.071</td>
+                    <td>1</td>
+                    <td>0.651</td>
+                    <td>10.96</td>
+                </tr>
+                <tr class="rank-2">
+                    <td>2</td>
+                    <td>Dolphins_creators</td>
+                    <td>4.8</td>
+                    <td>7</td>
+                    <td>0.684</td>
+                    <td>1</td>
+                    <td>0.261</td>
+                    <td>0.232</td>
+                    <td>6.5</td>
+                    <td>0.448</td>
+                    <td>12.67</td>
+                </tr>
+                <tr class="rank-3">
+                    <td>3</td>
+                    <td>TUKE</td>
+                    <td>5.2</td>
+                    <td>4</td>
+                    <td>0.75</td>
+                    <td>8</td>
+                    <td>0.046</td>
+                    <td>0.043</td>
+                    <td>3.5</td>
+                    <td>0.602</td>
+                    <td>11.96</td>
+                </tr>
+                <tr class="rank-3">
+                    <td>3</td>
+                    <td>MaastrichtU-CDS</td>
+                    <td>5.2</td>
+                    <td>6</td>
+                    <td>0.688</td>
+                    <td>2.5</td>
+                    <td>0.181</td>
+                    <td>0.126</td>
+                    <td>7</td>
+                    <td>0.599</td>
+                    <td>16.17</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>FARM</td>
+                    <td>5.3</td>
+                    <td>5</td>
+                    <td>0.715</td>
+                    <td>4</td>
+                    <td>0.148</td>
+                    <td>0.113</td>
+                    <td>7</td>
+                    <td>0.531</td>
+                    <td>13.41</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>DKFZ_MIC</td>
+                    <td>6.2</td>
+                    <td>10</td>
+                    <td>0.569</td>
+                    <td>2.5</td>
+                    <td>0.171</td>
+                    <td>0.155</td>
+                    <td>6</td>
+                    <td>0.557</td>
+                    <td>13.31</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>MIPLAB</td>
+                    <td>6.7</td>
+                    <td>12</td>
+                    <td>0.473</td>
+                    <td>6</td>
+                    <td>0.065</td>
+                    <td>0.053</td>
+                    <td>2</td>
+                    <td>0.632</td>
+                    <td>11.48</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>prenuvo</td>
+                    <td>6.2</td>
+                    <td>8</td>
+                    <td>0.649</td>
+                    <td>7</td>
+                    <td>0.064</td>
+                    <td>0.047</td>
+                    <td>3.5</td>
+                    <td>0.626</td>
+                    <td>12.53</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>fomo25_brain</td>
+                    <td>6.8</td>
+                    <td>3</td>
+                    <td>0.76</td>
+                    <td>9</td>
+                    <td>0.006</td>
+                    <td>0.005</td>
+                    <td>8.5</td>
+                    <td>0.409</td>
+                    <td>14.85</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>ashash</td>
+                    <td>7.2</td>
+                    <td>1</td>
+                    <td>0.789</td>
+                    <td>10.5</td>
+                    <td>0.003</td>
+                    <td>0.004</td>
+                    <td>10</td>
+                    <td>0.37</td>
+                    <td>17.62</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>biopet</td>
+                    <td>11.5</td>
+                    <td>13</td>
+                    <td>0.44</td>
+                    <td>10.5</td>
+                    <td>0.005</td>
+                    <td>0.002</td>
+                    <td>11</td>
+                    <td>0.137</td>
+                    <td>18.21</td>
+                </tr>
+                <tr class="baseline-row">
+                    <td>-</td>
+                    <td>baseline_unet_b</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>0.536</td>
+                    <td>-</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>-</td>
+                    <td>0.538</td>
+                    <td>12.05</td>
+                </tr>
+                <tr class="baseline-row">
+                    <td>-</td>
+                    <td>baseline_unet_xl</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>0.624</td>
+                    <td>-</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>-</td>
+                    <td>0.446</td>
+                    <td>12.82</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Track 2: Open Results -->
+    <h2 class="text-2xl font-bold text-gray-900 mb-6 mt-12">Track 2: Open</h2>
+    <div class="overflow-x-auto text-center">
+        <table id="resultsTableTrack2" class="w-100">
+            <thead>
+                <tr>
+                    <th rowspan="2">Rank</th>
+                    <th rowspan="2">Team</th>
+                    <th rowspan="2">Overall Rank</th>
+                    <th colspan="2">Task 1: Infarct Detection</th>
+                    <th colspan="3">Task 2: Meningioma Segmentation</th>
+                    <th colspan="3">Task 3: Brain Age Estimation</th>
+                </tr>
+                <tr>
+                    <th>Rank</th>
+                    <th>AUCROC</th>
+                    <th>Rank</th>
+                    <th>Dice</th>
+                    <th>NSD</th>
+                    <th>Rank</th>
+                    <th>Correlation</th>
+                    <th>MAE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="rank-1">
+                    <td>1</td>
+                    <td>LatentCampus</td>
+                    <td>2.7</td>
+                    <td>2</td>
+                    <td>0.659</td>
+                    <td>1</td>
+                    <td>0.275</td>
+                    <td>0.243</td>
+                    <td>5</td>
+                    <td>0.558</td>
+                    <td>16.5</td>
+                </tr>
+                <tr class="rank-2">
+                    <td>2</td>
+                    <td>FOMO2JOMO</td>
+                    <td>3.7</td>
+                    <td>4</td>
+                    <td>0.625</td>
+                    <td>6</td>
+                    <td>0.039</td>
+                    <td>0.04</td>
+                    <td>1</td>
+                    <td>0.861</td>
+                    <td>6.8</td>
+                </tr>
+                <tr class="rank-3">
+                    <td>3</td>
+                    <td>DKFZ_MIC</td>
+                    <td>4.17</td>
+                    <td>7</td>
+                    <td>0.569</td>
+                    <td>2</td>
+                    <td>0.252</td>
+                    <td>0.227</td>
+                    <td>3.5</td>
+                    <td>0.556</td>
+                    <td>13.67</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>MIPLAB</td>
+                    <td>4.50</td>
+                    <td>3</td>
+                    <td>0.639</td>
+                    <td>5</td>
+                    <td>0.048</td>
+                    <td>0.046</td>
+                    <td>5.5</td>
+                    <td>0.32</td>
+                    <td>14.21</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>FOMO HSEE</td>
+                    <td>4.7</td>
+                    <td>9</td>
+                    <td>0.491</td>
+                    <td>3</td>
+                    <td>0.184</td>
+                    <td>0.141</td>
+                    <td>2</td>
+                    <td>0.633</td>
+                    <td>12.27</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Raidium</td>
+                    <td>4.8</td>
+                    <td>5</td>
+                    <td>0.593</td>
+                    <td>4</td>
+                    <td>0.11</td>
+                    <td>0.093</td>
+                    <td>5.5</td>
+                    <td>0.357</td>
+                    <td>14.31</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>CAMI_SIAT</td>
+                    <td>5.5</td>
+                    <td>1</td>
+                    <td>0.671</td>
+                    <td>8.5</td>
+                    <td>0.007</td>
+                    <td>0.004</td>
+                    <td>7</td>
+                    <td>0.229</td>
+                    <td>16.42</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>McGill_PVG</td>
+                    <td>7.3</td>
+                    <td>8</td>
+                    <td>0.56</td>
+                    <td>7</td>
+                    <td>0.014</td>
+                    <td>0.007</td>
+                    <td>7</td>
+                    <td>0.444</td>
+                    <td>18.03</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>TeamTigerAtFOMO2025</td>
+                    <td>7.5</td>
+                    <td>6</td>
+                    <td>0.58</td>
+                    <td>8</td>
+                    <td>0.006</td>
+                    <td>0.007</td>
+                    <td>8.5</td>
+                    <td>-0.032</td>
+                    <td>16.79</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // Initialize both tables with the same configuration
+        var tableConfig = {
+            "paging": false,
+            "searching": false,
+            "info": false,
+            "responsive": true,
+            "order": [[0, "asc"]],
+            "columnDefs": [
+                {
+                    "targets": [0, 2, 3, 5, 8],
+                    "type": "num",
+                    "render": function (data, type, row) {
+                        if (type === 'sort') {
+                            // Put baselines at the end for sorting
+                            return data === '-' ? 999 : parseFloat(data.toString().replace(',', '.')) || 0;
+                        }
+                        return data;
+                    }
+                },
+                {
+                    "targets": [4, 6, 7, 9, 10],
+                    "type": "num",
+                    "render": function (data, type, row) {
+                        if (type === 'display' || type === 'type') {
+                            return data;
+                        }
+                        // Convert comma decimal separator to dot for sorting
+                        return parseFloat(data.toString().replace(',', '.')) || 0;
+                    }
+                }
+            ]
+        };
+
+        $('#resultsTable').DataTable(tableConfig);
+        $('#resultsTableTrack2').DataTable(tableConfig);
+    });
+</script>
