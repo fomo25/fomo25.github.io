@@ -6,15 +6,11 @@ permalink: /results
 
 <!-- DataTables CSS -->
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
-<link rel="stylesheet" type="text/css"
-    href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css">
 
 <!-- jQuery and DataTables JS -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
 
 <style>
     /* Minimal styling */
@@ -118,6 +114,35 @@ permalink: /results
         color: #6c757d;
         font-style: italic;
     }
+
+    /* Mobile-specific styles for horizontal scrolling */
+    @media (max-width: 768px) {
+        .overflow-x-auto {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table.dataTable {
+            min-width: 800px;
+            white-space: nowrap;
+        }
+
+        table.dataTable thead th,
+        table.dataTable tbody td {
+            min-width: 80px;
+            white-space: nowrap;
+        }
+
+        /* Make first three columns slightly wider for better readability */
+        table.dataTable thead th:first-child,
+        table.dataTable thead th:nth-child(2),
+        table.dataTable thead th:nth-child(3),
+        table.dataTable tbody td:first-child,
+        table.dataTable tbody td:nth-child(2),
+        table.dataTable tbody td:nth-child(3) {
+            min-width: 100px;
+        }
+    }
 </style>
 
 <div class="bg-white text-gray-900 max-w-6xl mx-auto px-8 py-16 my-8 rounded-lg shadow-md">
@@ -131,7 +156,7 @@ permalink: /results
         <table id="resultsTable" class="w-100">
             <thead>
                 <tr>
-                    <th rowspan="2">Rank</th>
+                    <th rowspan="2">Placement</th>
                     <th rowspan="2">Team</th>
                     <th rowspan="2">Overall Rank</th>
                     <th colspan="2">Task 1: Infarct Detection</th>
@@ -329,7 +354,7 @@ permalink: /results
         <table id="resultsTableTrack2" class="w-100">
             <thead>
                 <tr>
-                    <th rowspan="2">Rank</th>
+                    <th rowspan="2">Placement</th>
                     <th rowspan="2">Team</th>
                     <th rowspan="2">Overall Rank</th>
                     <th colspan="2">Task 1: Infarct Detection</th>
@@ -477,7 +502,7 @@ permalink: /results
             "paging": false,
             "searching": false,
             "info": false,
-            "responsive": true,
+            "responsive": false,
             "order": [[0, "asc"]],
             "columnDefs": [
                 {
